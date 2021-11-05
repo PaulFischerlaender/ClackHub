@@ -20,7 +20,7 @@ You can easily sort them by for example Linear or Tactile variants of a switch, 
 
 ### `Guides for newcomers`
 
-ClackHub provides you with a lot of own guides and links to different sites, so you can get started enjoying this hobby\
+ClackHub provides you with a lot of own guides and links to different sites, so you can get started enjoying this hobby
 more quicker.
 
 **You wanna learn how to properly lube your switches?**\
