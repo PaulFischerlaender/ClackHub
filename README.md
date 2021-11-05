@@ -8,7 +8,7 @@ Easy upkeep of all of the data by using a tight integration of the **Airtable AP
 
 ## 
 
-Core features of [ClackHub](https://clackhub.com/index).:
+Core features of [ClackHub](https://clackhub.com/index):
 
 ### `Easy stock overview`
 
