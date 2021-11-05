@@ -13,7 +13,7 @@ Core features of [ClackHub](https://clackhub.com/index):
 ### `Easy stock overview`
 
 ClackHub is built so that it is easy to keep track of all of the available switches, keycaps and keyboard kits out there.\
-When I firsted started with this Hobby it was pretty confusing with amount of different kind of types of keyboard parts.
+When I first started with this Hobby it was pretty confusing with amount of different kind of types of keyboard parts.
 
 With ClackHub you can see the whole majority of essential keyboard parts available by vendors.\
 You can easily sort them by for example Linear or Tactile variants of a switch, or sort by layout if you are looking for ISO keycaps.
