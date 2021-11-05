@@ -39,5 +39,5 @@ The `Compatibility Checker` will look out for these kind of problematic situatio
 ### `Vendors list for all regions`
 
 Finding Vendors in your area can be sometimes difficult, especially for newbies. ClackHub therefore lists a majority\
-of Vendors for different regions so you can choose the right Vendor without having to deal with possible Customs problems\
+of vendors for different regions so you can choose the right vendor without having to deal with possible customs problems\
 or long delivery times.
