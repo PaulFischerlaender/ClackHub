@@ -23,12 +23,20 @@ class App extends React.Component {
 	* Sprich der Link+'?filterbyFormula='+'%7BCATEGORY%7D%3D%22VALUE%22+'&api_key=API_KEY'
 	*/
 
+	
 	render() {
 		const {booksData} = this.state
-		const URL = 'https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches'
-		const query = '?filterByFormula='
-		const filterBy = 'SEARCH("Tactile", {type})'
-		const link = '${URL}${query}${filterBy}'
+		const typel = document.getElementsByName('tpye-linear');
+		if(typel.checked == true) {
+				
+				fetch('https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches?filterByFormula=%7Btype%7D%3D%22Linear%22&api_key=keyrEGBPInadSIyJC')
+					.then(res => res.json())
+					.then(res => {
+						console.log(res.records)
+						this.setState({ booksData: res.records })
+					})
+					.catch(error => console.log(error))
+			}	
 			return (
 				<Grid container direction='row' spacing={0}>
 					{booksData.map(book => (
@@ -37,6 +45,7 @@ class App extends React.Component {
 				</Grid>
 			)
 		}
+
 }
 
 export default App
