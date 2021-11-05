@@ -23,6 +23,12 @@ You can easily sort them by for example Linear or Tactile variants of a switch, 
 ClackHub provides you with a lot of own guides and links to different sites, so you can get started enjoying this hobby\
 more quicker.
 
+**You wanna learn how to properly lube your switches?**
+We got you.
+
+**You want to learn how to design and built your own PCB and Case?**
+We've got a link for that.
+
 ### `Compatibility Checker for your selected parts`
 
 Most of the time, there should be no issue with your selected parts, as they are mostly all standardized.\
