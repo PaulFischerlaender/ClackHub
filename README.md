@@ -31,7 +31,7 @@ We've got a link for that.
 
 ### `Compatibility Checker for your selected parts`
 
-Most of the time, there should be no issues with your selected parts, as they are mostly all standardized.\
+Most of the time, there should be no issues with your selected parts, as they are mostly all standardized.
 
 Tho some things, like using a north-facing PCB with Cherry keycaps can cause interference issues.
 The `Compatibility Checker` will look out for these kind of problematic situations and inform you if necessary.
