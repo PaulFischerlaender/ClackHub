@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# ClackHub - The marketplace app for the custom keyboard scene
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Created by **Paul Fischerländer aka Keebify** in November 2021.
 
-## Available Scripts
+Built with React and Airtable to make easy adjustments to the core catalog.
 
-In the project directory, you can run:
+Easy upkeep of all of the data by using a tight integration of the **Airtable API**
 
-### `npm start`
+## 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Core features of [ClackHub](https://clackhub.com/index):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `Easy stock overview`
 
-### `npm test`
+ClackHub is built so that it is easy to keep track of all of the available switches, keycaps and keyboard kits out there.\
+When I first started with this hobby it was pretty confusing with the amount of different kind of types of keyboard parts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+With ClackHub you can see the whole majority of essential keyboard parts available by vendors.\
+You can easily sort them by for example Linear or Tactile variants of a switch, or sort by layout if you are looking for ISO keycaps.
 
-### `npm run build`
+### `Guides for newcomers`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ClackHub provides you with a lot of own guides and links to different sites, so you can get started enjoying this hobby quicker.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**You wanna learn how to properly lube your switches?**\
+We got you.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**You want to learn how to design and built your own PCB and Case?**\
+We've got a link for that.
 
-### `npm run eject`
+### `Compatibility Checker for your selected parts`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Most of the time, there should be no issues with your selected parts, as they are mostly all standardized.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Tho some things, like using a north-facing PCB with Cherry keycaps can cause interference issues.
+The `Compatibility Checker` will look out for these kind of problematic situations and inform you if necessary.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `Vendors list for all regions`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Finding Vendors in your area can be sometimes difficult, especially for newbies. ClackHub therefore lists a majority\
+of vendors for different regions so you can choose the right vendor without having to deal with possible customs problems\
+or long delivery times.
