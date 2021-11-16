@@ -166,3 +166,13 @@ a:hover {
   left: 3vh;
   bottom: 1vh;
 }
+
+.grid-container {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.filter-control {
+  background-color: #EFF2F5;
+  margin-right: 50px;
+}

@@ -9,16 +9,15 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
 
-
 const useStyles = makeStyles({
 	gutterTop: {
 		marginTop: 20
 	},
 	card: {
-		maxWidth: 250,
-		minWidth: 250,
-		minHeight: 300,
-		maxHeight: 300,
+		maxWidth: 225,
+		minWidth: 225,
+		minHeight: 250,
+		maxHeight: 250,
 		marginBottom: 20,
 		marginTop: 20,
 		marginLeft: 20,
@@ -26,6 +25,10 @@ const useStyles = makeStyles({
 	},
 	media: {
 		height: 80
+	},
+	typo: {
+		height: 20
+
 	}
 })
 
@@ -34,7 +37,7 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
 	return (
 		<div className={classes.root}>
 			<Grid item xs={10}>
-				<Card className={classes.card} style={{backgroundColor: "#F8FAFD"}}>
+				<Card className={classes.card} style={{backgroundColor: "#F8FAFD"}} elevation={0}>
 					<CardActionArea>
 						<CardContent>
 							<Typography gutterBottom variant='h5' component='h2'>
@@ -44,7 +47,7 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
 						</CardContent>
 					</CardActionArea>
 					<CardContent>
-						<Typography paragraph variant='body2'>
+						<Typography className={classes.typo}paragraph variant='body2'>
 							{type} {config} {manu} {price} {status}
 						</Typography>
 					</CardContent>

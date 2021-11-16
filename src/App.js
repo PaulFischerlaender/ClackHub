@@ -6,10 +6,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
 import Checkbox from '@mui/material/Checkbox';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
+
 
 
 const URL_SWITCHES = 'https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches';
@@ -77,7 +75,7 @@ class App extends React.Component {
 
 	//Generates Switch filter link by clicked ID with used constant
 	generateFilterSwitches(e) {
-		if(e.target.id == BtnClicky) {
+		if(e.target.id === BtnClicky) {
 			fetch(URL_SWITCHES + filterbyFormula + filterClickyString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -85,7 +83,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == BtnLinear) {
+		if(e.target.id === BtnLinear) {
 			fetch(URL_SWITCHES + filterbyFormula + filterLinearString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -93,7 +91,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == BtnTactile) {
+		if(e.target.id === BtnTactile) {
 			fetch(URL_SWITCHES + filterbyFormula + filterTactileString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -101,7 +99,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == Btn3Pin) {
+		if(e.target.id === Btn3Pin) {
 			fetch(URL_SWITCHES + filterbyFormula + filter3PinString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -109,7 +107,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == Btn5Pin) {
+		if(e.target.id === Btn5Pin) {
 			fetch(URL_SWITCHES + filterbyFormula + filter5pinString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -117,7 +115,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == BtnJWK) {
+		if(e.target.id === BtnJWK) {
 			fetch(URL_SWITCHES + filterbyFormula + filterJWKString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -125,7 +123,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == BtnCherry) {
+		if(e.target.id === BtnCherry) {
 			fetch(URL_SWITCHES + filterbyFormula + filterCherryString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -133,7 +131,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == BtnGateron) {
+		if(e.target.id === BtnGateron) {
 			fetch(URL_SWITCHES + filterbyFormula + filterGateronString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -141,7 +139,7 @@ class App extends React.Component {
 			})
 			.catch(error => console.log(error))
 		}
-		if(e.target.id == BtnEverglide) {
+		if(e.target.id === BtnEverglide) {
 			fetch(URL_SWITCHES + filterbyFormula + filterEverglideString + askForKeyWhenFilter + key)
 			.then(res => res.json())
 			.then(res => {
@@ -189,7 +187,7 @@ class App extends React.Component {
           						</div>
         					</div>
         				<div id="root">
-							<div>
+							<div class="filter-control">
 							<FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
         						<FormLabel component="legend">Switch Type</FormLabel>
         							<FormGroup>
@@ -263,11 +261,13 @@ class App extends React.Component {
 									Show All
 								</Button>
 							</div>
-							<Grid container direction='row' spacing={0}>
-								{booksData.map(book => (
-								<Switches {...book.fields} key={book.fields.id} />
-								))}
-							</Grid>
+							<div class="grid-container">
+								<Grid container direction='row' spacing={0}>
+									{booksData.map(book => (
+									<Switches {...book.fields} key={book.fields.id} />
+									))}
+								</Grid>
+							</div>
 						</div>
       					</div>
 					</div>
