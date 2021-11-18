@@ -1,56 +1,135 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
+import { Card, Row, Text } from '@nextui-org/react';
 import Grid from '@material-ui/core/Grid'
+import { Modal, Button, Spacer} from "@nextui-org/react";
+import Avail from './Avail'
 
-
+const booksData = []
 const useStyles = makeStyles({
-	gutterTop: {
-		marginTop: 20
-	},
 	card: {
-		maxWidth: 225,
-		minWidth: 225,
-		minHeight: 250,
-		maxHeight: 250,
-		marginBottom: 20,
-		marginTop: 20,
-		marginLeft: 20,
-		marginRight: 20
+		maxWidth: 280,
+		minWidth: 280,
+		minHeight: 140,
+		maxHeight: 275,
+	},
+	cardcontent: {
+		paddingLeft: 0,
+		paddingRight: 0,
+		paddingTop: 0,
+		paddingBottom: 0
 	},
 	media: {
 		height: 80
 	},
+	modalmedia: {
+		height: 150
+	},
 	typo: {
 		height: 20
 
+	},
+	grid: {
+		marginBottom: 20,
+		marginRight: 20,
+		padding: 0
 	}
 })
 
 function Switches({ title, coverImage, type, config, manu, price, status }) {
 	const classes = useStyles()
+	const [visible, setVisible] = React.useState(false);
+    const handler = () => setVisible(true);
+    const closeHandler = () => {
+        setVisible(false);
+        console.log('closed');
+    };
 	return (
 		<div className={classes.root}>
-			<Grid item xs={10}>
-				<Card className={classes.card} style={{backgroundColor: "#F8FAFD"}} elevation={0}>
-					<CardActionArea>
-						<CardContent>
-							<Typography gutterBottom variant='h5' component='h2'>
-								{title}
-							</Typography>
-							<CardMedia className={classes.media} image={coverImage} title='React' />
-						</CardContent>
-					</CardActionArea>
-					<CardContent>
-						<Typography className={classes.typo}paragraph variant='body2'>
-							{type} {config} {manu} {price} {status}
+			<div>
+   				<Modal
+				   	style={{backgroundColor: "#111111"}}
+        			
+        			blur
+        			aria-labelledby="modal-title"
+        			open={visible}
+        			onClose={closeHandler}
+					width="30vw"
+					backgroundColor='#111'
+   				>
+        			<Modal.Header>
+            			<Text id="modal-title" size={24}>
+            				<Text b size={24} color="#fff">
+                				{title}
+            				</Text>
+            			</Text>
+        			</Modal.Header>
+       				<Modal.Body>
+					   <CardMedia className={classes.modalmedia} image={coverImage}/>
+					   <Spacer y={1}/>
+            			<Row justify="space-between">
+							<Card color="primary" textColor="white">
+                				<Text h5 transform="capitalize">
+                					{price}
+                				</Text>
+            				</Card>
+							<Spacer y={1}/>
+							<Card color="primary" textColor="white">
+                				<Text h5 transform="capitalize">
+                					{config}
+                				</Text>
+            				</Card>
+							<Spacer y={1}/>
+							<Card color="primary" textColor="white">
+                				<Text h5 transform="capitalize">
+                					{type}
+                				</Text>
+            				</Card>
+            			</Row>
+						<Row justify="space-between">
+							<Card color="primary" textColor="white">
+                				<Text h5 transform="capitalize">
+                					{manu}
+                				</Text>
+            				</Card>
+							<Spacer y={1}/>
+							<Card color="primary" textColor="white">
+                				<Text h5 transform="capitalize">
+                					{status}
+                				</Text>
+            				</Card>
+						</Row>
+        			</Modal.Body>
+					<Spacer y={1}/>
+					<div class="splittermodal"></div>
+					<Spacer y={1}/>
+					<Row justify="space-between">
+					<Grid container direction='row' spacing={0}>
+						{booksData.map(book => (
+							<Avail {...book.fields} key={book.fields.id} />
+						))}
+					</Grid>
+					</Row>
+        			<Modal.Footer>
+            			<Button auto flat color="error" onClick={closeHandler}>
+            				Close
+            			</Button>
+        			</Modal.Footer>
+    			</Modal>
+			</div>
+			<Grid item xs={4} className={classes.grid}>
+				<Card className={classes.card} style={{backgroundColor: "#111111"}} clickable height="275" width="100" onClick={handler}>
+					<CardContent className={classes.cardcontent}>
+						<Typography gutterBottom variant='h5' component='h2' style={{color: "#fff"}}>
+							{title}
 						</Typography>
-					</CardContent>
+							<CardMedia className={classes.media} image={coverImage}/>
+						</CardContent>
 				</Card>
 			</Grid>
 		</div>
