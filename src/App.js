@@ -1,17 +1,12 @@
 import React from 'react'
 import Switches from './components/Cards'
-import {Button, Link, Checkbox, Spacer, Switch} from '@nextui-org/react';
+import {Button, Link, Checkbox, Spacer, Tooltip, Text} from '@nextui-org/react';
 import Grid from '@material-ui/core/Grid'
+import config from './components/config.json'
 
 
-const URL_SWITCHES = 'https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches';
-const URL_KEYCAPS = 'https://api.airtable.com/v0/appZDJBRdkG0hd1FU/keycaps';
-const key = 'keyrEGBPInadSIyJC';
-const version = 'Version: 0.1.2';
 
-const askForKey = '?api_key=';
-const filterbyFormula = '?filterByFormula='
-const askForKeyWhenFilter = '&api_key=';
+const key = process.env.REACT_APP_API_KEY;
 
 //Swtich filter constants
 const BtnClicky = 'filter.Clicky';
@@ -61,8 +56,9 @@ class App extends React.Component {
 
 	//Loads the switches landing-page
 	componentDidMount() {
+		console.log(process.env)
 		document.body.style.backgroundColor = "#000"
-		fetch(URL_SWITCHES + askForKey + key)
+		fetch(config.URL_SWITCHES + config.ASK_FOR_KEY + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -73,7 +69,7 @@ class App extends React.Component {
 	//Generates Switch filter link by clicked ID with used constant
 	generateFilterSwitches(e) {
 		if(e.target.id === BtnClicky) {
-			fetch(URL_SWITCHES + filterbyFormula + filterClickyString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterClickyString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -81,7 +77,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === BtnLinear) {
-			fetch(URL_SWITCHES + filterbyFormula + filterLinearString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterLinearString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -89,7 +85,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === BtnTactile) {
-			fetch(URL_SWITCHES + filterbyFormula + filterTactileString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterTactileString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -97,7 +93,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === Btn3Pin) {
-			fetch(URL_SWITCHES + filterbyFormula + filter3PinString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filter3PinString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -105,7 +101,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === Btn5Pin) {
-			fetch(URL_SWITCHES + filterbyFormula + filter5pinString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filter5pinString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -113,7 +109,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === BtnJWK) {
-			fetch(URL_SWITCHES + filterbyFormula + filterJWKString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterJWKString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -121,7 +117,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === BtnCherry) {
-			fetch(URL_SWITCHES + filterbyFormula + filterCherryString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterCherryString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -129,7 +125,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === BtnGateron) {
-			fetch(URL_SWITCHES + filterbyFormula + filterGateronString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterGateronString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -137,7 +133,7 @@ class App extends React.Component {
 			.catch(error => console.log(error))
 		}
 		if(e.target.id === BtnEverglide) {
-			fetch(URL_SWITCHES + filterbyFormula + filterEverglideString + askForKeyWhenFilter + key)
+			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterEverglideString + config.ASK_FOR_KEY_WHEN_FILTER + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ data: res.records })
@@ -153,14 +149,19 @@ class App extends React.Component {
 
 	//Loads keycaps landing-page
 	startKeycaps() {
-		fetch(URL_KEYCAPS + askForKey + key)
+		fetch(config.URL_KEYCAPS + config.ASK_FOR_KEY + key)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({ booksData: res.records })
 			})
 			.catch(error => console.log(error))
 	}
-	
+
+	/*
+	*
+	* Init html for page
+	*
+	*/
 	render() {
 		const {data} = this.state
 			return (
@@ -176,44 +177,70 @@ class App extends React.Component {
           						<Link id="nav.vendors" href="#"><h4>Vendors</h4></Link>
           						<Link id="nav.typingtest" href="#"><h4>Typing Test</h4></Link>
           						<Link id="nav.reddit" href="#"><h4>r/MechanicalKeyboards</h4></Link>
-          						<Button flat color="primary" class="button-version">{version}</Button>
+								  <Tooltip content={'Created with ❤️ by P4ul'} color="primary">
+								  	<Button auto rounded={false} flat color="primary" class="button-version">{config.VERSION}</Button>
+								  </Tooltip>
          						<Link href="#" class="nav-imprint"><h5>Imprint</h5></Link>
        						</div>
       					</div>
-      					<div class="splitter"></div>
       					<div class="content">
         					<div class="header">
           						<div class="filter">
-            						<Button rounded={false} flat color="primary" class="button-contact">Contact</Button>
-            						<Button rounded={false} flat color="#6E7C90" class="button-submit">Submit</Button>
+            						<Button auto rounded={false} flat color="primary" class="button-contact">Contact</Button>
+            						<Button auto rounded={false} flat color="#6E7C90" class="button-submit">Submit</Button>
           						</div>
         					</div>
 						<div id="modalOverlay">
 						<div id="root">
 							<div class="filter-control">
-								<Checkbox.Group color="warning" row>
-									<Checkbox color="primary" id={BtnClicky} onClick={this.generateFilterSwitches}> Clicky</Checkbox>
-									<Checkbox  id={BtnTactile} onClick={this.generateFilterSwitches}> Tactile</Checkbox>
-									<Checkbox  id={BtnLinear} onClick={this.generateFilterSwitches}> Linear</Checkbox>
-  								</Checkbox.Group>
+								<div>
+									<div>
+										<Text b h4>Switch Types</Text>
+									</div>
+									<Spacer y="1"/>
+									<div>
+										<Checkbox.Group color="warning" row>
+											<Checkbox color="primary" id={BtnClicky} onClick={this.generateFilterSwitches}> Clicky</Checkbox>
+											<Checkbox  id={BtnTactile} onClick={this.generateFilterSwitches}> Tactile</Checkbox>
+											<Checkbox  id={BtnLinear} onClick={this.generateFilterSwitches}> Linear</Checkbox>
+  										</Checkbox.Group>
+									</div>
+								</div>
 								<Spacer x="5"/>
-								<Checkbox.Group color="warning" row>
-									<Checkbox name="3pin" id={Btn3Pin} onClick={this.generateFilterSwitches}> 3-pin</Checkbox>
-									<Checkbox name="5pin" id={Btn5Pin} onClick={this.generateFilterSwitches}> 5-pin</Checkbox>
-  								</Checkbox.Group>
+								<div>
+									<div>
+										<Text b h4>Pin Type</Text>
+									</div>
+									<Spacer y="1"/>
+									<div>
+										<Checkbox.Group color="warning" row>
+											<Checkbox name="3pin" id={Btn3Pin} onClick={this.generateFilterSwitches}> 3pin</Checkbox>
+											<Checkbox name="5pin" id={Btn5Pin} onClick={this.generateFilterSwitches}> 5pin</Checkbox>
+  										</Checkbox.Group>
+									</div>
+								</div>
 								<Spacer x="5"/>
-								<Checkbox.Group color="warning" row>
-									<Checkbox name="JWK" id={BtnJWK} onClick={this.generateFilterSwitches}> JWK</Checkbox>
-									<Checkbox name="Cherry" id={BtnCherry} onClick={this.generateFilterSwitches}> Cherry</Checkbox>
-									<Checkbox name="Gateron" id={BtnGateron} onClick={this.generateFilterSwitches}> Gateron</Checkbox>
-									<Checkbox name="Everglide" id={BtnEverglide} onClick={this.generateFilterSwitches}> Everglide</Checkbox>
-  								</Checkbox.Group>
+								<div>
+									<div>
+										<Text b h4>Manufacturer</Text>
+									</div>
+									<Spacer y="1"/>
+									<div>
+										<Checkbox.Group color="warning" row>
+											<Checkbox name="JWK" id={BtnJWK} onClick={this.generateFilterSwitches}> JWK</Checkbox>
+											<Checkbox name="Cherry" id={BtnCherry} onClick={this.generateFilterSwitches}> Cherry</Checkbox>
+											<Checkbox name="Gateron" id={BtnGateron} onClick={this.generateFilterSwitches}> Gateron</Checkbox>
+											<Checkbox name="Everglide" id={BtnEverglide} onClick={this.generateFilterSwitches}> Everglide</Checkbox>
+  										</Checkbox.Group>
+									</div>
+								</div>
 								<Spacer x="5"/>
-								<Button flat color="primary" onClick={this.componentDidMount} id='Filter.All'>
+								<Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
 									Show All
 								</Button>
 								<Spacer x="5"/>
 							</div>
+							<Spacer y="3"/>
 							<div class="grid-container">
 								<Grid container direction='row' spacing={0}>
 									{data.map(book => (

@@ -1,16 +1,15 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
-import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
-import { Card, Row, Text } from '@nextui-org/react';
 import Grid from '@material-ui/core/Grid'
-import { Modal, Button, Spacer} from "@nextui-org/react";
+import { Modal, Button, Spacer, Card, Row, Text} from "@nextui-org/react";
 import Avail from './Avail'
 
 const booksData = []
+
 const useStyles = makeStyles({
 	card: {
 		maxWidth: 280,
@@ -49,6 +48,11 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
         setVisible(false);
         console.log('closed');
     };
+	/*
+	*
+	* Init html for cards
+	*
+	*/
 	return (
 		<div className={classes.root}>
 			<div>
@@ -71,20 +75,20 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
         			</Modal.Header>
        				<Modal.Body>
 					   <CardMedia className={classes.modalmedia} image={coverImage}/>
-					   <Spacer y={1}/>
+					   <Spacer y={2}/>
             			<Row justify="space-between">
 							<Card color="primary" textColor="white">
                 				<Text h5 transform="capitalize">
                 					{price}
                 				</Text>
             				</Card>
-							<Spacer y={1}/>
+							<Spacer y={2}/>
 							<Card color="primary" textColor="white">
                 				<Text h5 transform="capitalize">
                 					{config}
                 				</Text>
             				</Card>
-							<Spacer y={1}/>
+							<Spacer y={2}/>
 							<Card color="primary" textColor="white">
                 				<Text h5 transform="capitalize">
                 					{type}
@@ -97,15 +101,15 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
                 					{manu}
                 				</Text>
             				</Card>
-							<Spacer y={1}/>
-							<Card color="primary" textColor="white">
-                				<Text h5 transform="capitalize">
-                					{status}
-                				</Text>
-            				</Card>
+							<Spacer y={2}/>
+								<Card color="primary" textColor="white">
+                					<Text h5 transform="capitalize">
+                						{status}
+                					</Text>
+            					</Card>
 						</Row>
         			</Modal.Body>
-					<Spacer y={1}/>
+					<Spacer y={2}/>
 					<div class="splittermodal"></div>
 					<Spacer y={1}/>
 					<Row justify="space-between">
@@ -123,7 +127,7 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
     			</Modal>
 			</div>
 			<Grid item xs={4} className={classes.grid}>
-				<Card className={classes.card} style={{backgroundColor: "#111111"}} clickable height="275" width="100" onClick={handler}>
+				<Card className={classes.card} style={{backgroundColor: "#111111"}} clickable height="275" width="100" onClick={handler} shadow={false}>
 					<CardContent className={classes.cardcontent}>
 						<Typography gutterBottom variant='h5' component='h2' style={{color: "#fff"}}>
 							{title}
