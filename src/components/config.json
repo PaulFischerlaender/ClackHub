@@ -1,7 +1,13 @@
 {
     "URL_SWITCHES": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches",
-    "VERSION": "Version: 0.1.2",
+    "URL_KEYCAPS": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/keycaps",
+    "VERSION": "Version: 0.1.2-c",
     "ASK_FOR_KEY": "?api_key=",
     "FILTER_BY_FORMULA": "?filterByFormula=",
-    "ASK_FOR_KEY_WHEN_FILTER": "&api_key="
+    "ASK_FOR_KEY_WHEN_FILTER": "&api_key=",
+    "HOME_SITE_LINK": "/",
+    "SWITCH_SITE_LINK": "/switches",
+    "KIT_SITE_LINK": "/kits",
+    "VENDOR_SITE_LINK": "/vendors",
+    "KEYCAP_SITE_LINK": "/keycaps"
 }

@@ -1,14 +1,11 @@
 import React from 'react'
-
 import { makeStyles } from '@material-ui/core/styles'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { Modal, Button, Spacer, Card, Row, Text} from "@nextui-org/react";
-import Avail from './Avail'
 
-const booksData = []
 
 const useStyles = makeStyles({
 	card: {
@@ -40,7 +37,7 @@ const useStyles = makeStyles({
 	}
 })
 
-function Switches({ title, coverImage, type, config, manu, price, status }) {
+function Switches({ title, coverImage, type, config, manu, price, status, avail, links}) {
 	const classes = useStyles()
 	const [visible, setVisible] = React.useState(false);
     const handler = () => setVisible(true);
@@ -48,6 +45,12 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
         setVisible(false);
         console.log('closed');
     };
+
+	if(avail != null) {
+		console.log(avail)
+	}else {
+		
+	}
 	/*
 	*
 	* Init html for cards
@@ -113,10 +116,12 @@ function Switches({ title, coverImage, type, config, manu, price, status }) {
 					<div class="splittermodal"></div>
 					<Spacer y={1}/>
 					<Row justify="space-between">
-					<Grid container direction='row' spacing={0}>
-						{booksData.map(book => (
-							<Avail {...book.fields} key={book.fields.id} />
-						))}
+					<Grid container direction='row' spacing={0} id="availgrid">
+						<Card color="primary" textColor="white" id="availcard">
+                			<Text h5 transform="capitalize">
+                				{avail}{links}
+                			</Text>
+            			</Card>
 					</Grid>
 					</Row>
         			<Modal.Footer>
