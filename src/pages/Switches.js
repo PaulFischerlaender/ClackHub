@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Checkbox, Spacer, Text } from '@nextui-org/react';
 import config from '../components/config.json'
 import Grid from '@material-ui/core/Grid'
+import Cards from '../components/Cards'
 
 const BtnClicky = 'filter.Clicky';
 const BtnLinear = 'filter.linear';
@@ -35,10 +36,10 @@ class Switches extends Component {
 
     //Mounts the component to access it from HTML
     componentDidMount = this.componentDidMount.bind(this);
+    generateFilterSwitches = this.generateFilterSwitches.bind(this);
 
     //Fetch results from database and store them in 'data'
     componentDidMount() {
-        console.log(process.env)
         fetch(config.URL_SWITCHES + config.ASK_FOR_KEY + key)
             .then(res => res.json())
             .then(res => {
@@ -49,7 +50,7 @@ class Switches extends Component {
     }
 
     //Generate filter links for selected checkboxes
-    //TODO: Dont hardcode Filterlinks. Make them stackable, like '3pin + tactile'
+    //TODO: Dont hardcode filterlinks + make them stackable, like '3pin + tactile'
     generateFilterSwitches(e) {
 		if (e.target.id === BtnClicky) {
 			fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterClickyString + config.ASK_FOR_KEY_WHEN_FILTER + key)
@@ -182,7 +183,7 @@ class Switches extends Component {
                 <div class="grid-container">
                     <Grid container direction='row' spacing={0}>
                         {data.map(book => (
-                            <Switches {...book.fields} key={book.fields.id} />
+                            <Cards {...book.fields} key={book.fields.id} />
                         ))}
                     </Grid>
                 </div>
