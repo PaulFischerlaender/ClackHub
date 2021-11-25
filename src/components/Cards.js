@@ -7,34 +7,11 @@ import Grid from '@material-ui/core/Grid'
 import { Modal, Button, Spacer, Card, Row, Text, Col, Link, Container } from "@nextui-org/react";
 import configJSON from './config.json'
 
-const useStyles = makeStyles({
-	cardcontent: {
-		paddingLeft: 0,
-		paddingRight: 0,
-		paddingTop: 0,
-		paddingBottom: 0
-	},
-	media: {
-		height: 80
-	},
-	modalmedia: {
-		height: 150
-	},
-	typo: {
-		height: 20
 
-	},
-	grid: {
-		marginBottom: 20,
-		marginRight: 20,
-		padding: 0
-	}
-})
 
 
 
 function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, novelkeys }) {
-	const classes = useStyles()
 	const [visible, setVisible] = React.useState(false);
 	const handler = () => setVisible(true);
 	const closeHandler = () => {
@@ -48,7 +25,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	*/
 
 	return (
-		<div className={classes.root}>
+		<div>
 			<div>
 				<Modal
 					noPadding={true}
@@ -109,16 +86,19 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 					<RenderLinks />
 				</Modal>
 			</div>
-			<Grid className={classes.grid}>
-				{/**
-                 * @style
-                 * 'classes.card' defines looks of the card
-                 */}
-
+			{/**
+                * @style
+                * Defines the layout of the grid
+                */}
+			<Grid style={{
+				marginBottom: 20,
+				marginRight: 20,
+				padding: 0
+			}}>
 				<Card width="14vw" color="#f6f6f6" cover clickable onClick={handler}>
 					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
 						<Col>
-							<CheckStatus/>
+							<CheckStatus />
 							<Text h3 color="black">
 								{title}
 							</Text>
@@ -150,7 +130,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 		</div>
 	)
 
-	//Checks if there is an entry in keygem and returns a Button
+	//Checks if there are entries in the link sections and returns buttons
 	function CheckKeygem(props) {
 		if (keygem != null) {
 			return (
@@ -212,15 +192,15 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	function RenderLinks() {
 		return (
 			<Modal.Footer blur>
-					<Container style={{
-						padding: 20
-					}}>
-						<Row justify="space-between">
-							<CheckKeygem />
-							<CheckCandykeys />
-							<CheckNovelkeys />
-						</Row>
-					</Container>
+				<Container style={{
+					padding: 20
+				}}>
+					<Row justify="space-between">
+						<CheckKeygem />
+						<CheckCandykeys />
+						<CheckNovelkeys />
+					</Row>
+				</Container>
 			</Modal.Footer>
 		)
 	}

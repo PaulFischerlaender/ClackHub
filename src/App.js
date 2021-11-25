@@ -33,7 +33,7 @@ function App() {
 	document.body.style.height = "100vh"
 
 	//Init HTML for side component.
-	//Route to other pages via react router
+	//Route to other pages via router
 	return (
 		<div>
 			<div className="hero" style={{

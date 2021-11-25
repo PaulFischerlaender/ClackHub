@@ -176,12 +176,7 @@ class Switches extends Component {
                     </Button>
                 </div>
                 <Spacer y="3" />
-                {/**
-                 * @style
-                 * 'grid-contaienr' defines the width of the card grid area
-                 */}
-                <div class="grid-container" style={{
-                }}>
+                <div class="grid-container">
                     <Grid container direction='row' spacing={0}>
                         {data.map(book => (
                             <Cards {...book.fields} key={book.fields.id} />
