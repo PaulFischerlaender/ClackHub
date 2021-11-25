@@ -1,15 +1,7 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { Modal, Button, Spacer, Card, Row, Text, Col, Link, Container } from "@nextui-org/react";
 import configJSON from './config.json'
-
-
-
-
 
 function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, novelkeys }) {
 	const [visible, setVisible] = React.useState(false);
