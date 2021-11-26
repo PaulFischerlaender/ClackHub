@@ -29,7 +29,6 @@ const routes = {
 function App() {
 	const routeResult = useRoutes(routes);
 	document.body.style.backgroundColor = config.DARK_COLOR_BACKGROUND;
-	document.body.style.overflowY = "hidden";
 	document.body.style.height = "100vh"
 
 	//Init HTML for side component.
@@ -41,11 +40,10 @@ function App() {
 				width: "100%",
 				height: "auto"
 			}}>
-				<div className="nav" style={{ 
-					backgroundColor: config.DARK_COLOR_MAIN,
+				<div className="nav" style={{
 					display: "flex",
 					height: "15%"
-				 }}>
+				}}>
 					<div className="logo" style={{
 						width: "12%"
 					}}>
@@ -53,53 +51,49 @@ function App() {
 					</div>
 					<div className="nav-content" style={{
 						display: "flex",
-						marginTop: "2vh"
+						marginTop: "2vh",
+						width: "88%",
+						justifyContent: "space-between"
 					}}>
-						<UILink color={config.DARK_LINK_COLOR} id="nav.overview" className="nav-overview" href="/" style={{
-							marginRight: "1vw"
+						<div className="nav-content-left" style={{
+							display: "flex"
 						}}>
-							<h4>Overview</h4>
-						</UILink>
-						<br />
-						<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/kits" style={{
-							marginRight: "1vw"
+							<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/kits" style={{
+								marginRight: "3vw"
+							}}>
+								<h4>Keyboard Kits</h4>
+							</UILink>
+							<UILink color={config.DARK_LINK_COLOR} id="nav.keycaps" href="/keycaps" style={{
+								marginRight: "3vw"
+							}}>
+								<h4>Keycaps</h4>
+							</UILink>
+							<UILink color={config.DARK_LINK_COLOR} id="nav.switches" href="/switches" style={{
+								marginRight: "3vw"
+							}}>
+								<h4>Switches</h4>
+							</UILink>
+							<UILink color={config.DARK_LINK_COLOR} id="nav.vendors" href="/vendors" style={{
+								marginRight: "3vw"
+							}}>
+								<h4>Vendors</h4>
+							</UILink>
+						</div>
+						<div className="nav-content-right" style={{
+							display: "flex",
 						}}>
-							<h4>Keyboard Kits</h4>
-						</UILink>
-						<br />
-						<UILink color={config.DARK_LINK_COLOR} id="nav.keycaps" href="/keycaps" style={{
-							marginRight: "1vw"
-						}}>
-							<h4>Keycaps</h4>
-						</UILink>
-						<br />
-						<UILink color={config.DARK_LINK_COLOR} id="nav.switches" href="/switches" style={{
-							marginRight: "1vw"
-						}}>
-							<h4>Switches</h4>
-						</UILink>
-						<br />
-						<UILink color={config.DARK_LINK_COLOR} id="nav.vendors" href="/vendors" style={{
-							marginRight: "1vw"
-						}}>
-							<h4>Vendors</h4>
-						</UILink>
-						<br />
-						<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
-							marginRight: "1vw"
-						}}><h4>Imprint</h4></UILink>
-						<Tooltip content={'Created with ❤️ by P4ul'} color="primary">
-							<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
-						</Tooltip>
+							<Tooltip content={'Created with ❤️ by P4ul'} placement="bottom" color="primary" style={{
+								marginRight: "3vh"
+							}}>
+								<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
+							</Tooltip>
+							<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
+								marginRight: "1vw"
+							}}><h4>Imprint</h4></UILink>
+						</div>
 					</div>
 				</div>
-				<div style={{
-						width: "100%",
-						height: "5px",
-						backgroundColor: "#DBEAFF"
-					}}>
-					</div>
-				<div className="content" style= {{
+				<div className="content" style={{
 					width: "90%",
 					margin: 0,
 					margin: "auto"

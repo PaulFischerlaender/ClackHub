@@ -26,8 +26,13 @@ const filterEverglideString = '%7Bmanu%7D%3D%22Everglide%22';
 
 const key = process.env.REACT_APP_API_KEY;
 
-
 class Switches extends Component {
+
+    /**
+     * Renders the Switch site with all of its available cards, fed by airbase,
+     * generates Modals and its parent card dynamically.
+     */
+
 
     //Defines 'data' as an array of 'state'
     state = {
@@ -37,6 +42,7 @@ class Switches extends Component {
     //Mounts the component to access it from HTML
     componentDidMount = this.componentDidMount.bind(this);
     generateFilterSwitches = this.generateFilterSwitches.bind(this);
+    generateLink = this.generateLink.bind(this);
 
     //Fetch results from database and store them in 'data'
     componentDidMount() {
@@ -52,7 +58,7 @@ class Switches extends Component {
     //Generate filter links for selected checkboxes
     //TODO: Dont hardcode filterlinks + make them stackable, like '3pin + tactile'
     generateFilterSwitches(e) {
-        if (e.target.id === BtnClicky) {
+        if (e.value === "linear") {
             fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterClickyString + config.ASK_FOR_KEY_WHEN_FILTER + key)
                 .then(res => res.json())
                 .then(res => {
@@ -126,6 +132,11 @@ class Switches extends Component {
         }
     }
 
+    generateLink(e) {
+        const valueTarget = e.value;
+        console.log(e.currentTarget.value)
+    }
+
     //Render the grid with all cards, fed by 'data'
     render() {
         const { data } = this.state
@@ -146,31 +157,39 @@ class Switches extends Component {
                             <Text b h4>Switch Types</Text>
                         </div>
                         <Spacer y="1" />
+                        {/**
+                         * Container for the 'type' radio group
+                         */}
                         <div>
-                            <Radio.Group value="1" row>
-                                <Radio value="1" id={BtnLinear} onClick={this.generateFilterSwitches}>
+                            <Radio.Group row value="group">
+                                <Radio value="linear" id={BtnLinear} onClick={this.generateLink}>
                                     Linear</Radio>
-                                <Radio value="2" id={BtnTactile} onClick={this.generateFilterSwitches}>
+                                <Radio value="tactile" id={BtnTactile} onClick={this.generateFilterSwitches}>
                                     Tactile</Radio>
-                                <Radio value="3" id={BtnClicky} onClick={this.generateFilterSwitches}>
+                                <Radio value="clicky" id={BtnClicky} onClick={this.generateFilterSwitches}>
                                     Clicky</Radio>
                             </Radio.Group>
                         </div>
                     </div>
+                    <Spacer x="2" />
                     <div>
                         <div>
                             <Text b h4>Pin Type</Text>
                         </div>
                         <Spacer y="1" />
+                        {/**
+                         * Container for the 'config' radio group
+                         */}
                         <div>
-                            <Radio.Group value="1" row>
-                                <Radio value="1" id={Btn5Pin} onClick={this.generateFilterSwitches}>
+                            <Radio.Group row>
+                                <Radio value="5pin" id={Btn5Pin} onClick={this.generateFilterSwitches}>
                                     5pin</Radio>
-                                <Radio value="2" id={Btn3Pin} onClick={this.generateFilterSwitches}>
+                                <Radio value="3pin" id={Btn3Pin} onClick={this.generateFilterSwitches}>
                                     3pin</Radio>
                             </Radio.Group>
                         </div>
                     </div>
+                    <Spacer x="2" />
                     <Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
                         Show All
                     </Button>

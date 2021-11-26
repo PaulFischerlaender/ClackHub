@@ -1,13 +1,288 @@
 import React, { Component } from "react"
+import { Button, Card, Text, Tooltip } from "@nextui-org/react";
+import config from '../components/config.json'
+
+const key = process.env.REACT_APP_API_KEY;
 
 class Vendors extends Component {
+
+    //Defines 'data' as an array of 'state'
+    state = {
+        data: [],
+    }
+
+    //Mounts the component to access it from HTML
+    componentDidMount = this.componentDidMount.bind(this);
+
+    //Fetch results from database and store them in 'data'
+    componentDidMount() {
+        fetch(config.URL_VENDORS + config.ASK_FOR_KEY + key)
+            .then(res => res.json())
+            .then(res => {
+                //Sets fetched 'res' to 'data'
+                this.setState({ data: res.records })
+            })
+            .catch(error => console.log(error))
+    }
+
     render() {
+        const { data } = this.state;
         return (
-            <div>
-                <h1>VENDORS</h1>
+            <div style={{
+                display: "flex",
+                marginTop: "3vh"
+            }}>
+                <Card style={{
+                    width: "20%",
+                    marginRight: "1vw",
+                    backgroundColor: config.DARK_COLOR_SIDE
+                }}>
+                    <Card color={config.EUROPE_COLOR} auto style={{
+                        marginBottom: "2vh",
+                        overflow: "hidden"
+                    }}>
+                        <h5 style={{
+                            color: "#fff"
+                        }}>
+                            EUROPE
+                        </h5>
+                    </Card>
+                    {data.map(book => (
+                        <CheckRegionEU {...book.fields} key={book.fields.id} />
+                    ))}
+                </Card>
+                <Card style={{
+                    width: "20%",
+                    marginRight: "1vw",
+                    backgroundColor: config.DARK_COLOR_SIDE
+                }}>
+                    <Card color={config.NA_COLOR} auto style={{
+                        marginBottom: "2vh"
+                    }}>
+                        <h5 style={{
+                            color: "#fff"
+                        }}>
+                            NORTH AMERICA
+                        </h5>
+                    </Card>
+                    {data.map(book => (
+                        <CheckRegionNA {...book.fields} key={book.fields.id} />
+                    ))}
+                </Card>
+                <Card style={{
+                    width: "20%",
+                    marginRight: "1vw",
+                    backgroundColor: config.DARK_COLOR_SIDE
+                }}>
+                    <Card color={config.SA_COLOR} auto style={{
+                        marginBottom: "2vh"
+                    }}>
+                        <h5 style={{
+                            color: "#fff"
+                        }}>
+                            SOUTH AMERICA
+                        </h5>
+                    </Card>
+                    {data.map(book => (
+                        <CheckRegionSA {...book.fields} key={book.fields.id} />
+                    ))}
+                </Card>
+                <Card style={{
+                    width: "20%",
+                    marginRight: "1vw",
+                    backgroundColor: config.DARK_COLOR_SIDE
+                }}>
+                    <Card color={config.ASIA_COLOR} auto style={{
+                        marginBottom: "2vh"
+                    }}>
+                        <h5 style={{
+                            color: "#fff"
+                        }}>
+                            ASIA
+                        </h5>
+                    </Card>
+                    {data.map(book => (
+                        <CheckRegionAsia {...book.fields} key={book.fields.id} />
+                    ))}
+                </Card>
+                <Card style={{
+                    width: "20%",
+                    marginRight: "1vw",
+                    backgroundColor: config.DARK_COLOR_SIDE
+                }}>
+                    <Card color={config.OCEANIA_COLOR} auto style={{
+                        marginBottom: "2vh"
+                    }}>
+                        <h5 style={{
+                            color: "#fff"
+                        }}>
+                            OCEANIA
+                        </h5>
+                    </Card>
+                    {data.map(book => (
+                        <CheckRegionOceania {...book.fields} key={book.fields.id} />
+                    ))}
+                </Card>
+                <Card style={{
+                    width: "20%",
+                    backgroundColor: config.DARK_COLOR_SIDE
+                }}>
+                    <Card color={config.AFRICA_COLOR} auto style={{
+                        marginBottom: "2vh"
+                    }}>
+                        <h5 style={{
+                            color: "#fff"
+                        }}>
+                            AFRICA
+                        </h5>
+                    </Card>
+                    {data.map(book => (
+                        <CheckRegionAfrica {...book.fields} key={book.fields.id} />
+                    ))}
+                </Card>
             </div>
         )
     }
 }
+
+//Sorts the results in regions and returns them
+function CheckRegionNA({ name, website, region, location }) {
+    if (region === "NorthAmerica") {
+        return (
+            <Button style={{
+                marginBottom: "1vh"
+            }} auto flat color={config.NA_COLOR} textColor="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = website.toString();
+            }}>
+               <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.NA_COLOR}>
+                    <Text h5 transform="capitalize">
+                        {name}
+                    </Text>
+                </Tooltip>
+            </Button>
+        )
+    } else {
+        return (
+            null
+        )
+    }
+}
+
+function CheckRegionSA({ name, website, region, location }) {
+    if (region == "SouthAmerica") {
+        return (
+            <Button style={{
+                marginBottom: "1vh"
+            }} auto flat color={config.SA_COLOR} textColor="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = website.toString();
+            }}>
+                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.SA_COLOR}>
+                    <Text h5 transform="capitalize">
+                        {name}
+                    </Text>
+                </Tooltip>
+            </Button>
+        )
+    } else {
+        return (
+            null
+        )
+    }
+}
+
+function CheckRegionEU({ name, website, region, location }) {
+    if (region == "Europe") {
+        return (
+            <Button style={{
+                marginBottom: "1vh"
+            }} auto flat color={config.EUROPE_COLOR} textColor="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = website.toString();
+            }}>
+                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.EUROPE_COLOR}>
+                    <Text h5 transform="capitalize">
+                        {name}
+                    </Text>
+                </Tooltip>
+            </Button>
+        )
+    } else {
+        return (
+            null
+        )
+    }
+}
+
+function CheckRegionAsia({ name, website, region, location }) {
+    if (region == "Asia") {
+        return (
+            <Button style={{
+                marginBottom: "1vh"
+            }} auto flat color={config.ASIA_COLOR} textColor="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = website.toString();
+            }}>
+               <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.ASIA_COLOR}>
+                    <Text h5 transform="capitalize">
+                        {name}
+                    </Text>
+                </Tooltip>
+            </Button>
+        )
+    } else {
+        return (
+            null
+        )
+    }
+}
+
+function CheckRegionOceania({ name, website, region, location }) {
+    if (region == "Oceania") {
+        return (
+            <Button style={{
+                marginBottom: "1vh"
+            }} auto flat color={config.OCEANIA_COLOR} textColor="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = website.toString();
+            }}>
+                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.OCEANIA_COLOR}>
+                    <Text h5 transform="capitalize">
+                        {name}
+                    </Text>
+                </Tooltip>
+            </Button>
+        )
+    } else {
+        return (
+            null
+        )
+    }
+}
+
+function CheckRegionAfrica({ name, website, region, location }) {
+    if (region == "Africa") {
+        return (
+            <Button style={{
+                marginBottom: "1vh"
+            }} auto flat color={config.AFRICA_COLOR} textColor="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = website.toString();
+            }}>
+                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.AFRICA_COLOR}>
+                    <Text h5 transform="capitalize">
+                        {name}
+                    </Text>
+                </Tooltip>
+            </Button>
+        )
+    } else {
+        return (
+            null
+        )
+    }
+}
+
 
 export default Vendors;

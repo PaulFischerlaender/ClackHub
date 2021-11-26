@@ -1,17 +1,32 @@
 {
     "URL_SWITCHES": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches",
     "URL_KEYCAPS": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/keycaps",
-    "VERSION": "Version: 0.1.4",
+    "URL_VENDORS": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/vendors",
+
+    "LOCATION_STRING": "Located in ",
+
+    "VERSION": "Version: 0.1.5",
+
     "ASK_FOR_KEY": "?api_key=",
     "FILTER_BY_FORMULA": "?filterByFormula=",
     "ASK_FOR_KEY_WHEN_FILTER": "&api_key=",
+
     "HOME_SITE_LINK": "/",
     "SWITCH_SITE_LINK": "/switches",
     "KIT_SITE_LINK": "/kits",
     "VENDOR_SITE_LINK": "/vendors",
     "KEYCAP_SITE_LINK": "/keycaps",
-    "DARK_COLOR_MAIN": "#fff",
-    "DARK_COLOR_BACKGROUND": "#fff",
-    "DARK_LINK_COLOR": "#000",
-    "LIGHT_LINK_COLOR": "#fff"
+
+    "DARK_COLOR_SIDE": "#262626",
+    "DARK_COLOR_BACKGROUND": "#1b1b1b",
+    "DARK_LINK_COLOR": "#fff",
+    "LIGHT_LINK_COLOR": "#fff",
+    "LIGHT_AMBIENT_COLOR": "DBEAFF",
+
+    "EUROPE_COLOR": "primary",
+    "NA_COLOR": "warning",
+    "SA_COLOR": "secondary",
+    "ASIA_COLOR": "#f72585",
+    "OCEANIA_COLOR": "success",
+    "AFRICA_COLOR": "#fb5607"
 }

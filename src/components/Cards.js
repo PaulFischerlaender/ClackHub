@@ -23,6 +23,10 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 					noPadding={true}
 					open={visible}
 					onClose={closeHandler}
+					blur
+					style={{
+						backgroundColor: configJSON.DARK_COLOR_BACKGROUND
+					}}
 				>
 					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 20, left: 20 }}>
 						<Button auto flat rounded={false} color="#000">
@@ -83,8 +87,8 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
                 * Defines the layout of the grid
                 */}
 			<Grid style={{
-				marginBottom: 20,
-				marginRight: 20,
+				marginBottom: 15,
+				marginRight: 15,
 				padding: 0
 			}}>
 				<Card width="14vw" color="#f6f6f6" cover clickable onClick={handler}>
@@ -183,7 +187,9 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	//Renders all checked Vendors
 	function RenderLinks() {
 		return (
-			<Modal.Footer blur>
+			<Modal.Footer blur style={{
+				backgroundColor: configJSON.DARK_COLOR_SIDE
+			}}>
 				<Container style={{
 					padding: 20
 				}}>
