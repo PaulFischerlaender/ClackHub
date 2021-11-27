@@ -5,6 +5,15 @@ import config from '../components/config.json'
 const key = process.env.REACT_APP_API_KEY;
 const tagPlacement = "right";
 
+const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+}
+
+const onClickUrl = (url) => {
+    return () => openInNewTab(url)
+}
+
 class Vendors extends Component {
 
     //Defines 'data' as an array of 'state'
@@ -152,11 +161,8 @@ function CheckRegionNA({ name, website, region, location }) {
         return (
             <Button style={{
                 marginBottom: "1vh"
-            }} auto flat color={config.NA_COLOR} textColor="white" onClick={(e) => {
-                e.preventDefault();
-                window.location.href = website.toString();
-            }}>
-               <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.NA_COLOR}>
+            }} auto flat color={config.NA_COLOR} textColor="white" onClick={onClickUrl(website)}>
+                <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.NA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -175,10 +181,7 @@ function CheckRegionSA({ name, website, region, location }) {
         return (
             <Button style={{
                 marginBottom: "1vh"
-            }} auto flat color={config.SA_COLOR} textColor="white" onClick={(e) => {
-                e.preventDefault();
-                window.location.href = website.toString();
-            }}>
+            }} auto flat color={config.SA_COLOR} textColor="white" onClick={onClickUrl(website)}>
                 <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.SA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
@@ -198,10 +201,7 @@ function CheckRegionEU({ name, website, region, location }) {
         return (
             <Button style={{
                 marginBottom: "1vh"
-            }} auto flat color={config.EUROPE_COLOR} textColor="white" onClick={(e) => {
-                e.preventDefault();
-                window.location.href = website.toString();
-            }}>
+            }} auto flat color={config.EUROPE_COLOR} textColor="white" onClick={onClickUrl(website)}>
                 <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.EUROPE_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
@@ -221,11 +221,8 @@ function CheckRegionAsia({ name, website, region, location }) {
         return (
             <Button style={{
                 marginBottom: "1vh"
-            }} auto flat color={config.ASIA_COLOR} textColor="white" onClick={(e) => {
-                e.preventDefault();
-                window.location.href = website.toString();
-            }}>
-               <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.ASIA_COLOR}>
+            }} auto flat color={config.ASIA_COLOR} textColor="white" onClick={onClickUrl(website)}>
+                <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.ASIA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -244,10 +241,7 @@ function CheckRegionOceania({ name, website, region, location }) {
         return (
             <Button style={{
                 marginBottom: "1vh"
-            }} auto flat color={config.OCEANIA_COLOR} textColor="white" onClick={(e) => {
-                e.preventDefault();
-                window.location.href = website.toString();
-            }}>
+            }} auto flat color={config.OCEANIA_COLOR} textColor="white" onClick={onClickUrl(website)}>
                 <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.OCEANIA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
@@ -267,10 +261,7 @@ function CheckRegionAfrica({ name, website, region, location }) {
         return (
             <Button style={{
                 marginBottom: "1vh"
-            }} auto flat color={config.AFRICA_COLOR} textColor="white" onClick={(e) => {
-                e.preventDefault();
-                window.location.href = website.toString();
-            }}>
+            }} auto flat color={config.AFRICA_COLOR} textColor="white" onClick={onClickUrl(website)}>
                 <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.AFRICA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}

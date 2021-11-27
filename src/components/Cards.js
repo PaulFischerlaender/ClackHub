@@ -3,12 +3,21 @@ import Grid from '@material-ui/core/Grid'
 import { Modal, Button, Spacer, Card, Row, Text, Col, Link, Container } from "@nextui-org/react";
 import configJSON from './config.json'
 
-function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, novelkeys }) {
+function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, splitkb, 
+	eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic, 
+	kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc }) {
 	const [visible, setVisible] = React.useState(false);
 	const handler = () => setVisible(true);
 	const closeHandler = () => {
 		setVisible(false);
 	};
+	const openInNewTab = (url) => {
+		const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+		if (newWindow) newWindow.opener = null
+	}
+	const onClickUrl = (url) => {
+		return () => openInNewTab(url)
+	}
 
 	/*
 	*
@@ -130,10 +139,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	function CheckKeygem(props) {
 		if (keygem != null) {
 			return (
-				<Button auto flat color="primary" textColor="white" onClick={(e) => {
-					e.preventDefault();
-					window.location.href = keygem.toString();
-				}}>
+				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(keygem)}>
 					<Text h5 transform="capitalize">
 						Keygem
 					</Text>
@@ -149,10 +155,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	function CheckCandykeys(props) {
 		if (candykeys != null) {
 			return (
-				<Button auto flat color="primary" textColor="white" onClick={(e) => {
-					e.preventDefault();
-					window.location.href = candykeys.toString();
-				}}>
+				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(candykeys)}>
 					<Text h5 transform="capitalize">
 						Candykeys
 					</Text>
@@ -168,10 +171,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	function CheckNovelkeys(props) {
 		if (novelkeys != null) {
 			return (
-				<Button auto flat color="primary" textColor="white" onClick={(e) => {
-					e.preventDefault();
-					window.location.href = novelkeys.toString();
-				}}>
+				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(novelkeys)}>
 					<Text h5 transform="capitalize">
 						Novelkeys
 					</Text>

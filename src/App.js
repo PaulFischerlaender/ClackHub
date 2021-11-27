@@ -32,7 +32,7 @@ const routes = {
 function App() {
 	const routeResult = useRoutes(routes);
 	document.body.style.backgroundColor = config.DARK_COLOR_BACKGROUND;
-	document.body.style.height = "100vh"
+	document.body.style.minHeight = "100vh";
 
 	//Init HTML for side component.
 	//Route to other pages via router

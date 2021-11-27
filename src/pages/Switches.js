@@ -7,6 +7,8 @@ import Cards from '../components/Cards'
 const BtnClicky = 'filter.Clicky';
 const BtnLinear = 'filter.linear';
 const BtnTactile = 'filter.tactile';
+const BtnSilentLinear = 'filter.silentlinear';
+const BtnSilentTactile = 'filter.silenttactile';
 const Btn3Pin = 'filter.3pin';
 const Btn5Pin = 'filter.5pin';
 const BtnJWK = 'filter.Jwk';
@@ -17,6 +19,8 @@ const BtnEverglide = 'filter.Everglide';
 const filterClickyString = '%7Btype%7D%3D%22Clicky%22'
 const filterTactileString = '%7Btype%7D%3D%22Tactile%22';
 const filterLinearString = '%7Btype%7D%3D%22Linear%22';
+const filterSilentLinearString = '%7Btype%7D%3D%22SilentLinear%22';
+const filterSilentTactileString = '%7Btype%7D%3D%22SilentTactile%22';
 const filter3PinString = '%7Bconfig%7D%3D%223-pin%22';
 const filter5pinString = '%7Bconfig%7D%3D%225-pin%22';
 const filterJWKString = '%7Bmanu%7D%3D%22JWK%22';
@@ -76,6 +80,22 @@ class Switches extends Component {
         }
         if (e.target.id === BtnTactile) {
             fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterTactileString + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                .then(res => res.json())
+                .then(res => {
+                    this.setState({ data: res.records })
+                })
+                .catch(error => console.log(error))
+        }
+        if (e.target.id === BtnSilentLinear) {
+            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterSilentLinearString + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                .then(res => res.json())
+                .then(res => {
+                    this.setState({ data: res.records })
+                })
+                .catch(error => console.log(error))
+        }
+        if (e.target.id === BtnSilentTactile) {
+            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterSilentTactileString + config.ASK_FOR_KEY_WHEN_FILTER + key)
                 .then(res => res.json())
                 .then(res => {
                     this.setState({ data: res.records })
@@ -168,6 +188,10 @@ class Switches extends Component {
                                     Tactile</Radio>
                                 <Radio value="clicky" id={BtnClicky} onClick={this.generateFilterSwitches}>
                                     Clicky</Radio>
+                                <Radio value="silentlinear" id={BtnSilentLinear} onClick={this.generateFilterSwitches}>
+                                    Silent Linear</Radio>
+                                <Radio value="silentclicky" id={BtnSilentTactile} onClick={this.generateFilterSwitches}>
+                                    Silent Tactile</Radio>
                             </Radio.Group>
                         </div>
                     </div>
