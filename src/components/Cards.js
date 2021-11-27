@@ -91,7 +91,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 				marginRight: 15,
 				padding: 0
 			}}>
-				<Card width="14vw" color="#f6f6f6" cover clickable onClick={handler}>
+				<Card width="14vw" color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler}>
 					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
 						<Col>
 							<CheckStatus />

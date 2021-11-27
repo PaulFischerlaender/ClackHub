@@ -58,7 +58,7 @@ class Switches extends Component {
     //Generate filter links for selected checkboxes
     //TODO: Dont hardcode filterlinks + make them stackable, like '3pin + tactile'
     generateFilterSwitches(e) {
-        if (e.value === "linear") {
+        if (e.target.id === BtnClicky) {
             fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterClickyString + config.ASK_FOR_KEY_WHEN_FILTER + key)
                 .then(res => res.json())
                 .then(res => {
@@ -162,7 +162,7 @@ class Switches extends Component {
                          */}
                         <div>
                             <Radio.Group row value="group">
-                                <Radio value="linear" id={BtnLinear} onClick={this.generateLink}>
+                                <Radio value="linear" id={BtnLinear} onClick={this.generateFilterSwitches}>
                                     Linear</Radio>
                                 <Radio value="tactile" id={BtnTactile} onClick={this.generateFilterSwitches}>
                                     Tactile</Radio>

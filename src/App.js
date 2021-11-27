@@ -8,6 +8,8 @@ import Keycaps from './pages/Keycaps';
 import Kits from './pages/Kits';
 import Home from './pages/Home';
 import { useRoutes } from 'hookrouter';
+import AppLogo from './logo.svg';
+import Guide from './pages/Guide';
 
 /**
  * 
@@ -24,6 +26,7 @@ const routes = {
 	"/switches": () => <Switches />,
 	"/keycaps": () => <Keycaps />,
 	"/kits": () => <Kits />,
+	"/guides": () => <Guide />
 };
 
 function App() {
@@ -44,10 +47,16 @@ function App() {
 					display: "flex",
 					height: "15%"
 				}}>
-					<div className="logo" style={{
-						width: "12%"
-					}}>
-						<h2>logo</h2>
+					<div className="logo">
+						<a href="/">
+							<img src={AppLogo} style={{
+								width: "40px",
+								height: "40px",
+								marginLeft: "3vh",
+								marginTop: "1vh",
+								marginRight: "3vh"
+							}}></img>
+						</a>
 					</div>
 					<div className="nav-content" style={{
 						display: "flex",
@@ -58,6 +67,11 @@ function App() {
 						<div className="nav-content-left" style={{
 							display: "flex"
 						}}>
+							<UILink color={config.DARK_LINK_COLOR} id="nav.guides" href="/guides" style={{
+								marginRight: "3vw"
+							}}>
+								<h4>Guides</h4>
+							</UILink>
 							<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/kits" style={{
 								marginRight: "3vw"
 							}}>
@@ -82,7 +96,7 @@ function App() {
 						<div className="nav-content-right" style={{
 							display: "flex",
 						}}>
-							<Tooltip content={'Created with ❤️ by P4ul'} placement="bottom" color="primary" style={{
+							<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
 								marginRight: "3vh"
 							}}>
 								<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>

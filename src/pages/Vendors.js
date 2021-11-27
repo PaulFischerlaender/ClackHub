@@ -3,6 +3,7 @@ import { Button, Card, Text, Tooltip } from "@nextui-org/react";
 import config from '../components/config.json'
 
 const key = process.env.REACT_APP_API_KEY;
+const tagPlacement = "right";
 
 class Vendors extends Component {
 
@@ -155,7 +156,7 @@ function CheckRegionNA({ name, website, region, location }) {
                 e.preventDefault();
                 window.location.href = website.toString();
             }}>
-               <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.NA_COLOR}>
+               <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.NA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -178,7 +179,7 @@ function CheckRegionSA({ name, website, region, location }) {
                 e.preventDefault();
                 window.location.href = website.toString();
             }}>
-                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.SA_COLOR}>
+                <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.SA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -201,7 +202,7 @@ function CheckRegionEU({ name, website, region, location }) {
                 e.preventDefault();
                 window.location.href = website.toString();
             }}>
-                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.EUROPE_COLOR}>
+                <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.EUROPE_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -224,7 +225,7 @@ function CheckRegionAsia({ name, website, region, location }) {
                 e.preventDefault();
                 window.location.href = website.toString();
             }}>
-               <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.ASIA_COLOR}>
+               <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.ASIA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -247,7 +248,7 @@ function CheckRegionOceania({ name, website, region, location }) {
                 e.preventDefault();
                 window.location.href = website.toString();
             }}>
-                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.OCEANIA_COLOR}>
+                <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.OCEANIA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
@@ -270,7 +271,7 @@ function CheckRegionAfrica({ name, website, region, location }) {
                 e.preventDefault();
                 window.location.href = website.toString();
             }}>
-                <Tooltip content={config.LOCATION_STRING + location} placement="top" color={config.AFRICA_COLOR}>
+                <Tooltip content={config.LOCATION_STRING + location} placement={tagPlacement} color={config.AFRICA_COLOR}>
                     <Text h5 transform="capitalize">
                         {name}
                     </Text>
