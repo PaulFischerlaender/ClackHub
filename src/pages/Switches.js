@@ -1,7 +1,7 @@
-import React, { Component, useState } from "react";
-import { Button, Checkbox, Spacer, Text, Radio } from '@nextui-org/react';
+import React, { Component } from "react";
+import { Button, Spacer, Text, Radio, Collapse, Grid } from '@nextui-org/react';
 import config from '../components/config.json'
-import Grid from '@material-ui/core/Grid'
+//import Grid from '@material-ui/core/Grid'
 import Cards from '../components/Cards'
 
 const BtnClicky = 'filter.Clicky';
@@ -153,7 +153,7 @@ class Switches extends Component {
     }
 
     generateLink(e) {
-        const valueTarget = e.value;
+        //const valueTarget = e.value;
         console.log(e.currentTarget.value)
     }
 
@@ -166,65 +166,84 @@ class Switches extends Component {
                  * @style
                  * 'filter-control' defines the width of the fitler area
                  */}
-                <div class="filter-control" style={{
+                <div className="filter-control" style={{
                     display: "flex",
                     margin: 0,
                     margin: "auto",
-                    width: "70%"
+                    marginTop: "30px",
+                    width: "100%"
                 }}>
-                    <div>
+                    <Collapse
+                        shadow
+                        title={<Text h3 color="#fff">Filter</Text>}
+                        textColor="primary"
+                        subtitle="Look for specific combinations of switches"
+                        justify="center"
+                        style={{
+                            width: "100%",
+                            backgroundColor: config.DARK_COLOR_SIDE,
+                        }}
+                    >
                         <div>
-                            <Text b h4>Switch Types</Text>
-                        </div>
-                        <Spacer y="1" />
-                        {/**
+                            <div>
+                                <Text b h4>Switch Types</Text>
+                            </div>
+                            <Spacer y="1" />
+                            {/**
                          * Container for the 'type' radio group
                          */}
-                        <div>
-                            <Radio.Group row value="group">
-                                <Radio value="linear" id={BtnLinear} onClick={this.generateFilterSwitches}>
-                                    Linear</Radio>
-                                <Radio value="tactile" id={BtnTactile} onClick={this.generateFilterSwitches}>
-                                    Tactile</Radio>
-                                <Radio value="clicky" id={BtnClicky} onClick={this.generateFilterSwitches}>
-                                    Clicky</Radio>
-                                <Radio value="silentlinear" id={BtnSilentLinear} onClick={this.generateFilterSwitches}>
-                                    Silent Linear</Radio>
-                                <Radio value="silentclicky" id={BtnSilentTactile} onClick={this.generateFilterSwitches}>
-                                    Silent Tactile</Radio>
-                            </Radio.Group>
+                            <div style={{
+                                marginBottom: "15px"
+                            }}>
+                                <Radio.Group row value="group">
+                                    <Radio value="linear" id={BtnLinear} onClick={this.generateFilterSwitches}>
+                                        Linear</Radio>
+                                    <Radio value="tactile" id={BtnTactile} onClick={this.generateFilterSwitches}>
+                                        Tactile</Radio>
+                                    <Radio value="clicky" id={BtnClicky} onClick={this.generateFilterSwitches}>
+                                        Clicky</Radio>
+                                </Radio.Group>
+                            </div>
+                            <div>
+                                <Radio.Group row value="group">
+                                    <Radio value="silentlinear" id={BtnSilentLinear} onClick={this.generateFilterSwitches}>
+                                        Silent Linear</Radio>
+                                    <Radio value="silentclicky" id={BtnSilentTactile} onClick={this.generateFilterSwitches}>
+                                        Silent Tactile</Radio>
+                                </Radio.Group>
+                            </div>
                         </div>
-                    </div>
-                    <Spacer x="2" />
-                    <div>
+                        <Spacer x="2" />
                         <div>
-                            <Text b h4>Pin Type</Text>
-                        </div>
-                        <Spacer y="1" />
-                        {/**
+                            <div>
+                                <Text b h4>Pin Type</Text>
+                            </div>
+                            <Spacer y="1" />
+                            {/**
                          * Container for the 'config' radio group
                          */}
-                        <div>
-                            <Radio.Group row>
-                                <Radio value="5pin" id={Btn5Pin} onClick={this.generateFilterSwitches}>
-                                    5pin</Radio>
-                                <Radio value="3pin" id={Btn3Pin} onClick={this.generateFilterSwitches}>
-                                    3pin</Radio>
-                            </Radio.Group>
+                            <div>
+                                <Radio.Group row>
+                                    <Radio value="5pin" id={Btn5Pin} onClick={this.generateFilterSwitches}>
+                                        5pin</Radio>
+                                    <Radio value="3pin" id={Btn3Pin} onClick={this.generateFilterSwitches}>
+                                        3pin</Radio>
+                                </Radio.Group>
+                            </div>
                         </div>
-                    </div>
-                    <Spacer x="2" />
-                    <Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
-                        Show All
-                    </Button>
+                        <Spacer x="2" />
+                        <Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
+                            Show All
+                        </Button>
+                    </Collapse>
                 </div>
                 <Spacer y="3" />
-                <div class="grid-container">
-                    <Grid container direction='row' spacing={0}>
+                <div className="grid-container">
+                    <Grid.Container gap={1} justify="center">
                         {data.map(book => (
                             <Cards {...book.fields} key={book.fields.id} />
                         ))}
-                    </Grid>
+                    </Grid.Container>
                 </div>
             </div>
         )

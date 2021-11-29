@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Spacer, Tooltip } from '@nextui-org/react';
+import { Button, Tooltip, Collapse, Text, Col} from '@nextui-org/react';
 import { Link as UILink } from '@nextui-org/react'
 import config from './components/config.json'
 import Vendors from './pages/Vendors'
@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import { useRoutes } from 'hookrouter';
 import AppLogo from './logo.svg';
 import Guide from './pages/Guide';
+import { useMediaPredicate } from "react-media-hook";
 
 /**
  * 
@@ -30,6 +31,8 @@ const routes = {
 };
 
 function App() {
+	const biggerThan900 = useMediaPredicate("(min-width: 900px)");
+	const biggerThan570 = useMediaPredicate("(min-width: 570px)");
 	const routeResult = useRoutes(routes);
 	document.body.style.backgroundColor = config.DARK_COLOR_BACKGROUND;
 	document.body.style.minHeight = "100vh";
@@ -47,25 +50,94 @@ function App() {
 					display: "flex",
 					height: "15%"
 				}}>
-					<div className="logo">
+					{biggerThan900 && <div className="logo" style={{
+						marginTop: "30px"
+					}}>
 						<a href="/">
-							<img src={AppLogo} style={{
+							<img src={AppLogo} alt="" style={{
 								width: "40px",
 								height: "40px",
 								marginLeft: "3vh",
-								marginTop: "1vh",
 								marginRight: "3vh"
 							}}></img>
 						</a>
-					</div>
+					</div>}
 					<div className="nav-content" style={{
 						display: "flex",
 						marginTop: "2vh",
 						width: "88%",
-						justifyContent: "space-between"
+						justifyContent: "space-between",
+						margin: "auto"
 					}}>
-						<div className="nav-content-left" style={{
-							display: "flex"
+						{/**
+                         * Renders collpase for devices under 900px width
+                         */}
+						{!biggerThan900 && <Collapse
+							shadow
+							contentLeft={<div className="logo">
+								<img src={AppLogo} alt="" style={{
+									width: "40px",
+									height: "40px",
+									marginRight: "3vh"
+								}}></img>
+							</div>}
+							title={<Text h3 color="#fff">Navigation</Text>}
+							justify="center"
+							style={{
+								width: "100%",
+								backgroundColor: config.DARK_COLOR_SIDE,
+								marginTop: "30px"
+							}}>
+							<Col>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.home" href="/" style={{
+									marginRight: "3vw"
+								}}>
+									<h4>Home</h4>
+								</UILink>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.guides" href="/guides" style={{
+									marginRight: "3vw"
+								}}>
+									<h4>Guides</h4>
+								</UILink>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/kits" style={{
+									marginRight: "3vw"
+								}}>
+									<h4>Keyboard Kits</h4>
+								</UILink>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.keycaps" href="/keycaps" style={{
+									marginRight: "3vw"
+								}}>
+									<h4>Keycaps</h4>
+								</UILink>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.switches" href="/switches" style={{
+									marginRight: "3vw"
+								}}>
+									<h4>Switches</h4>
+								</UILink>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.vendors" href="/vendors" style={{
+									marginRight: "3vw"
+								}}>
+									<h4>Vendors</h4>
+								</UILink>
+								{!biggerThan570 && <Col>
+									<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
+										marginRight: "3vh",
+										marginTop: "10px"
+									}}>
+										<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
+									</Tooltip>
+									<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
+										marginRight: "1vw",
+										marginTop: "10px"
+									}}><h5>Imprint</h5></UILink></Col>}
+							</Col>
+						</Collapse>}
+						{/**
+                         * Renders Links for devices over 900px width
+                         */}
+						{biggerThan900 && <div className="nav-content-left" style={{
+							display: "flex",
+							marginTop: "30px"
 						}}>
 							<UILink color={config.DARK_LINK_COLOR} id="nav.guides" href="/guides" style={{
 								marginRight: "3vw"
@@ -92,9 +164,11 @@ function App() {
 							}}>
 								<h4>Vendors</h4>
 							</UILink>
-						</div>
-						<div className="nav-content-right" style={{
+						</div>}
+						{biggerThan570 && <div className="nav-content-right" style={{
 							display: "flex",
+							marginTop: "30px",
+							marginLeft: "3vh"
 						}}>
 							<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
 								marginRight: "3vh"
@@ -104,7 +178,7 @@ function App() {
 							<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
 								marginRight: "1vw"
 							}}><h4>Imprint</h4></UILink>
-						</div>
+						</div>}
 					</div>
 				</div>
 				<div className="content" style={{
@@ -112,7 +186,7 @@ function App() {
 					margin: 0,
 					margin: "auto"
 				}}>
-					<div id="main" class="main" style={{
+					<div id="main" className="main" style={{
 						width: "100%"
 					}}>
 						{routeResult}

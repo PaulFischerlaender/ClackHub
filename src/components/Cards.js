@@ -1,10 +1,9 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
-import { Modal, Button, Spacer, Card, Row, Text, Col, Link, Container } from "@nextui-org/react";
+import { Modal, Button, Spacer, Card, Row, Text, Col, Container, Grid } from "@nextui-org/react";
 import configJSON from './config.json'
 
-function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, splitkb, 
-	eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic, 
+function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, splitkb,
+	eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic,
 	kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc }) {
 	const [visible, setVisible] = React.useState(false);
 	const handler = () => setVisible(true);
@@ -18,6 +17,14 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	const onClickUrl = (url) => {
 		return () => openInNewTab(url)
 	}
+
+	const getManu = [keygem, candykeys, splitkb,
+		eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic,
+		kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc]
+
+	var filtered = getManu.filter(function (fed) {
+		return fed != null;
+	});
 
 	/*
 	*
@@ -34,7 +41,10 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 					onClose={closeHandler}
 					blur
 					style={{
-						backgroundColor: configJSON.DARK_COLOR_BACKGROUND
+						backgroundColor: configJSON.DARK_COLOR_SIDE,
+						minWidth: "50%",
+						maxWidth: "500px",
+						minHeight: "50%"
 					}}
 				>
 					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 20, left: 20 }}>
@@ -50,36 +60,35 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 						</Button>
 					</Modal.Header>
 					<Modal.Body>
-						<img src={coverImage} width="100%" height="100%" />
+						<img src={coverImage} alt="" width="100%" height="100%" />
 						<Container style={{
 							padding: 20
 						}}>
-							<Row justify="space-between">
+							<Row justify="space-evenly">
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{price}
 									</Text>
 								</Button>
-								<Spacer y={1} />
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{config}
 									</Text>
 								</Button>
-								<Spacer y={3} />
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{type}
 									</Text>
 								</Button>
 							</Row>
+							<Spacer x={1} />
 							<Row justify="space-between">
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{manu}
 									</Text>
 								</Button>
-								<Spacer y={1} />
+								<Text color={configJSON.LIGHT_LINK_COLOR} size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{status}
@@ -95,18 +104,13 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
                 * @style
                 * Defines the layout of the grid
                 */}
-			<Grid style={{
-				marginBottom: 15,
-				marginRight: 15,
-				padding: 0
-			}}>
-				<Card width="14vw" color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler}>
+			<Grid xs={6}>
+				<Card width="14vw" color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler} style={{
+					minWidth: "235px"
+				}}>
 					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
 						<Col>
 							<CheckStatus />
-							<Text h3 color="black">
-								{title}
-							</Text>
 						</Col>
 					</Card.Header>
 					<Card.Image
@@ -122,12 +126,9 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 						borderColor="rgba(255, 255, 255, 0.2)"
 						style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
 						<Row>
-							<Col>
-								<Text color="#000" size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
-							</Col>
-							<Col>
-								<CheckCreator />
-							</Col>
+							<Text h3 color={configJSON.LIGHT_LINK_COLOR}>
+								{title}
+							</Text>
 						</Row>
 					</Card.Footer>
 				</Card>
@@ -135,51 +136,24 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 		</div>
 	)
 
-	//Checks if there are entries in the link sections and returns buttons
-	function CheckKeygem(props) {
-		if (keygem != null) {
-			return (
-				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(keygem)}>
-					<Text h5 transform="capitalize">
-						Keygem
-					</Text>
-				</Button>
-			)
-		} else {
-			return (
-				null
-			)
-		}
-	}
+	//Converts the filtered results in an Array and returns a button with its value for each
+	function RenderFiltered() {
+		console.log(filtered)
+		const data = filtered
+		return (
+			data.map(x => {
+				<RenderFilteredButtons {...x.fields} key={x.fields} />
+			})
+		)
 
-	function CheckCandykeys(props) {
-		if (candykeys != null) {
+		function RenderFilteredButtons() {
+			console.log("FILTERED")
 			return (
-				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(candykeys)}>
+				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(data)}>
 					<Text h5 transform="capitalize">
-						Candykeys
+						{data}
 					</Text>
 				</Button>
-			)
-		} else {
-			return (
-				null
-			)
-		}
-	}
-
-	function CheckNovelkeys(props) {
-		if (novelkeys != null) {
-			return (
-				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(novelkeys)}>
-					<Text h5 transform="capitalize">
-						Novelkeys
-					</Text>
-				</Button>
-			)
-		} else {
-			return (
-				null
 			)
 		}
 	}
@@ -187,38 +161,23 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	//Renders all checked Vendors
 	function RenderLinks() {
 		return (
-			<Modal.Footer blur style={{
+			<Modal.Footer style={{
 				backgroundColor: configJSON.DARK_COLOR_SIDE
 			}}>
 				<Container style={{
 					padding: 20
 				}}>
 					<Row justify="space-between">
-						<CheckKeygem />
-						<CheckCandykeys />
-						<CheckNovelkeys />
+						<RenderFiltered />
 					</Row>
 				</Container>
 			</Modal.Footer>
 		)
 	}
 
-	//Checks if there is a creator entry
-	function CheckCreator(props) {
-		if (creator != null) {
-			return (
-				<Text color="#000" size={12}>Created by <Text color="primary">{creator}</Text></Text>
-			)
-		} else {
-			return (
-				null
-			)
-		}
-	}
-
 	//Checks if status is 'Released' or 'Groupbuy' and changes tag color
 	function CheckStatus() {
-		if (status == "Released") {
+		if (status === "Released") {
 			return (
 				<Button auto flat rounded={false} color="secondary">
 					<Text
@@ -231,7 +190,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 				</Button>
 			)
 		}
-		if (status == "Groupbuy") {
+		if (status === "Groupbuy") {
 			return (
 				<Button auto flat rounded={false} color="primary">
 					<Text
