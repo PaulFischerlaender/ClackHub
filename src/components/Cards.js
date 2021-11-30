@@ -97,7 +97,9 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 							</Row>
 						</Container>
 					</Modal.Body>
-					<RenderLinks />
+					<Grid.Container gap={1} justify="center">
+						<RenderLinks listdata={filtered} />
+					</Grid.Container>
 				</Modal>
 			</div>
 			{/**
@@ -136,42 +138,19 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 		</div>
 	)
 
-	//Converts the filtered results in an Array and returns a button with its value for each
-	function RenderFiltered() {
-		console.log(filtered)
-		const data = filtered
-		return (
-			data.map(x => {
-				<RenderFilteredButtons {...x.fields} key={x.fields} />
-			})
-		)
+	//Gets list of filtered manufacturers and lists each in a grid
+	function RenderLinks(props) {
+		const data = props.listdata;
+		const listItems = data.map((getdata) =>
+			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)}>
+				<Text h5 transform="capitalize">
+					Vendor
+				</Text>
+			</Button>
+		);
 
-		function RenderFilteredButtons() {
-			console.log("FILTERED")
-			return (
-				<Button auto flat color="primary" textColor="white" onClick={onClickUrl(data)}>
-					<Text h5 transform="capitalize">
-						{data}
-					</Text>
-				</Button>
-			)
-		}
-	}
-
-	//Renders all checked Vendors
-	function RenderLinks() {
 		return (
-			<Modal.Footer style={{
-				backgroundColor: configJSON.DARK_COLOR_SIDE
-			}}>
-				<Container style={{
-					padding: 20
-				}}>
-					<Row justify="space-between">
-						<RenderFiltered />
-					</Row>
-				</Container>
-			</Modal.Footer>
+			<Grid>{listItems}</Grid>
 		)
 	}
 

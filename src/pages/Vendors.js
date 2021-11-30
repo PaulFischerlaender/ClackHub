@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Card, Grid, Text, Tooltip } from "@nextui-org/react";
+import { Button, Card, Grid, Text, Tooltip, Spacer } from "@nextui-org/react";
 import config from '../components/config.json'
 
 const key = process.env.REACT_APP_API_KEY;

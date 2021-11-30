@@ -202,10 +202,6 @@ class Switches extends Component {
                                         Tactile</Radio>
                                     <Radio value="clicky" id={BtnClicky} onClick={this.generateFilterSwitches}>
                                         Clicky</Radio>
-                                </Radio.Group>
-                            </div>
-                            <div>
-                                <Radio.Group row value="group">
                                     <Radio value="silentlinear" id={BtnSilentLinear} onClick={this.generateFilterSwitches}>
                                         Silent Linear</Radio>
                                     <Radio value="silentclicky" id={BtnSilentTactile} onClick={this.generateFilterSwitches}>

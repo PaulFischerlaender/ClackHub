@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Tooltip, Collapse, Text, Col} from '@nextui-org/react';
+import { Button, Tooltip, Collapse, Text, Col } from '@nextui-org/react';
 import { Link as UILink } from '@nextui-org/react'
 import config from './components/config.json'
 import Vendors from './pages/Vendors'
@@ -11,6 +11,7 @@ import { useRoutes } from 'hookrouter';
 import AppLogo from './logo.svg';
 import Guide from './pages/Guide';
 import { useMediaPredicate } from "react-media-hook";
+import DiscordLogo from './discord.svg'
 
 /**
  * 
@@ -30,9 +31,18 @@ const routes = {
 	"/guides": () => <Guide />
 };
 
+const openInNewTab = (url) => {
+	const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+	if (newWindow) newWindow.opener = null
+}
+
+const onClickUrl = (url) => {
+	return () => openInNewTab(url)
+}
+
 function App() {
-	const biggerThan900 = useMediaPredicate("(min-width: 900px)");
-	const biggerThan570 = useMediaPredicate("(min-width: 570px)");
+	const biggerThan1070 = useMediaPredicate("(min-width: 1070px)");
+	const biggerThan570 = useMediaPredicate("(min-width: 740px)");
 	const routeResult = useRoutes(routes);
 	document.body.style.backgroundColor = config.DARK_COLOR_BACKGROUND;
 	document.body.style.minHeight = "100vh";
@@ -50,8 +60,9 @@ function App() {
 					display: "flex",
 					height: "15%"
 				}}>
-					{biggerThan900 && <div className="logo" style={{
-						marginTop: "30px"
+					{biggerThan1070 && <div className="logo" style={{
+						marginTop: "30px",
+						display: "flex"
 					}}>
 						<a href="/">
 							<img src={AppLogo} alt="" style={{
@@ -72,7 +83,7 @@ function App() {
 						{/**
                          * Renders collpase for devices under 900px width
                          */}
-						{!biggerThan900 && <Collapse
+						{!biggerThan1070 && <Collapse
 							shadow
 							contentLeft={<div className="logo">
 								<img src={AppLogo} alt="" style={{
@@ -119,23 +130,30 @@ function App() {
 								}}>
 									<h4>Vendors</h4>
 								</UILink>
-								{!biggerThan570 && <Col>
+								{!biggerThan570 && <div style={{
+									display: "flex",
+									marginTop: "30px",
+									marginBottom: "20px"
+								}}>
+									<Tooltip content={'Join our discord!'} placement="bottom" color="secondary" style={{
+										marginRight: "3vh"
+									}}>
+										<Button auto color="secondary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
+									</Tooltip>
 									<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
-										marginRight: "3vh",
-										marginTop: "10px"
+										marginRight: "3vh"
 									}}>
 										<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
 									</Tooltip>
 									<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
-										marginRight: "1vw",
-										marginTop: "10px"
-									}}><h5>Imprint</h5></UILink></Col>}
+										marginRight: "1vw"
+									}}><h5>Imprint</h5></UILink></div>}
 							</Col>
 						</Collapse>}
 						{/**
                          * Renders Links for devices over 900px width
                          */}
-						{biggerThan900 && <div className="nav-content-left" style={{
+						{biggerThan1070 && <div className="nav-content-left" style={{
 							display: "flex",
 							marginTop: "30px"
 						}}>
@@ -170,6 +188,11 @@ function App() {
 							marginTop: "30px",
 							marginLeft: "3vh"
 						}}>
+							<Tooltip content={'Join our discord!'} placement="bottom" color="secondary" style={{
+								marginRight: "3vh"
+							}}>
+								<Button auto color="secondary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
+							</Tooltip>
 							<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
 								marginRight: "3vh"
 							}}>
@@ -194,6 +217,12 @@ function App() {
 				</div>
 			</div>
 		</div>
+	)
+}
+
+function Discord() {
+	return (
+		<img src={DiscordLogo} />
 	)
 }
 
