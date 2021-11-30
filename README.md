@@ -28,7 +28,7 @@ We got you.
 **You want to learn how to design and built your own PCB and Case?**\
 We've got a link for that.
 
-### `Compatibility Checker for your selected parts`
+### `Compatibility Checker for your selected parts - COMING SOON`
 
 Most of the time, there should be no issues with your selected parts, as they are mostly all standardized.
 
