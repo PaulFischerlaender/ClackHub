@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal, Button, Spacer, Card, Row, Text, Col, Container, Grid } from "@nextui-org/react";
 import configJSON from './config.json'
+import { useMediaPredicate } from "react-media-hook";
 
 function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, splitkb,
 	eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic,
@@ -18,6 +19,8 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 		return () => openInNewTab(url)
 	}
 
+	const biggerThan534 = useMediaPredicate("(min-width: 534px)");
+
 	const getManu = [keygem, candykeys, splitkb,
 		eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic,
 		kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc]
@@ -34,7 +37,82 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 
 	return (
 		<div>
-			<div>
+			{/**
+			 * Shows modal with CloseButton when device is smaller than value
+			 */}
+			{!biggerThan534 && <div>
+				<Modal
+					noPadding={true}
+					open={visible}
+					onClose={closeHandler}
+					closeButton
+					blur
+					style={{
+						backgroundColor: configJSON.DARK_COLOR_SIDE,
+						minWidth: "50%",
+						maxWidth: "500px",
+						minHeight: "50%"
+					}}
+				>
+					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 20, left: 20 }}>
+						<Button auto flat rounded={false} color="#000">
+							<Text
+								size={15}
+								weight="bold"
+								transform="uppercase"
+								color={configJSON.LIGHT_LINK_COLOR}
+							>
+								{title}
+							</Text>
+						</Button>
+					</Modal.Header>
+					<Modal.Body>
+						<img src={coverImage} alt="" width="100%" height="100%" />
+						<Container style={{
+							padding: 20
+						}}>
+							<Row justify="space-evenly">
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{price}
+									</Text>
+								</Button>
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{config}
+									</Text>
+								</Button>
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{type}
+									</Text>
+								</Button>
+							</Row>
+							<Spacer x={1} />
+							<Row justify="space-between">
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{manu}
+									</Text>
+								</Button>
+								<Text color={configJSON.LIGHT_LINK_COLOR} size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{status}
+									</Text>
+								</Button>
+							</Row>
+						</Container>
+					</Modal.Body>
+					<Grid.Container gap={1} justify="center">
+						<RenderLinks listdata={filtered} />
+					</Grid.Container>
+				</Modal>
+			</div>}
+			{/**
+			 * Shows modal without CloseButton when devie is bigger than value
+			 */}
+			{biggerThan534 && <div>
 				<Modal
 					noPadding={true}
 					open={visible}
@@ -101,13 +179,41 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 						<RenderLinks listdata={filtered} />
 					</Grid.Container>
 				</Modal>
-			</div>
+			</div>}
 			{/**
                 * @style
                 * Defines the layout of the grid
                 */}
-			<Grid xs={6}>
-				<Card width="14vw" color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler} style={{
+			<Grid fluid>
+				{!biggerThan534 && <Card color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler} style={{
+					width: "90vw",
+					height: "34vh"
+				}}>
+					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+						<Col>
+							<CheckStatus />
+						</Col>
+					</Card.Header>
+					<Card.Image
+						autoResize={false}
+						src={coverImage}
+						height={400}
+						width="100%"
+						alt="Card example background"
+					/>
+					<Card.Footer
+						blur
+						border
+						borderColor="rgba(255, 255, 255, 0.2)"
+						style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
+						<Row>
+							<Text h3 color={configJSON.LIGHT_LINK_COLOR}>
+								{title}
+							</Text>
+						</Row>
+					</Card.Footer>
+				</Card>}
+				{biggerThan534 && <Card width="14vw" color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler} style={{
 					minWidth: "235px"
 				}}>
 					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -133,7 +239,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 							</Text>
 						</Row>
 					</Card.Footer>
-				</Card>
+				</Card>}
 			</Grid>
 		</div>
 	)
@@ -144,13 +250,17 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 		const listItems = data.map((getdata) =>
 			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)}>
 				<Text h5 transform="capitalize">
-					Vendor
+					 Vendors
 				</Text>
 			</Button>
 		);
 
 		return (
-			<Grid>{listItems}</Grid>
+			<Grid.Container gap={1} justify="center"  style={{
+				padding: 20
+			}}>
+				<Grid fluid>{listItems}</Grid>
+			</Grid.Container>
 		)
 	}
 
@@ -158,11 +268,12 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	function CheckStatus() {
 		if (status === "Released") {
 			return (
-				<Button auto flat rounded={false} color="secondary">
+				<Button auto flat rounded={false} color="#000">
 					<Text
 						size={12}
 						weight="bold"
 						transform="uppercase"
+						color="#fff"
 					>
 						{status}
 					</Text>

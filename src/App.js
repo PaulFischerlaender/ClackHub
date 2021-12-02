@@ -8,10 +8,11 @@ import Keycaps from './pages/Keycaps';
 import Kits from './pages/Kits';
 import Home from './pages/Home';
 import { useRoutes } from 'hookrouter';
-import AppLogo from './logo.svg';
+import AppLogo from './components/icons/logo.svg';
+import AppLogoMobile from './components/icons/logomobile.svg';
 import Guide from './pages/Guide';
 import { useMediaPredicate } from "react-media-hook";
-import DiscordLogo from './discord.svg'
+import DiscordLogo from './Discord-Logo-White.svg'
 
 /**
  * 
@@ -41,7 +42,7 @@ const onClickUrl = (url) => {
 }
 
 function App() {
-	const biggerThan1070 = useMediaPredicate("(min-width: 1070px)");
+	const biggerThan1070 = useMediaPredicate("(min-width: 1140px)");
 	const biggerThan570 = useMediaPredicate("(min-width: 740px)");
 	const routeResult = useRoutes(routes);
 	document.body.style.backgroundColor = config.DARK_COLOR_BACKGROUND;
@@ -56,18 +57,18 @@ function App() {
 				width: "100%",
 				height: "auto"
 			}}>
-				<div className="nav" style={{
+				<div id="nav" className="nav" style={{
 					display: "flex",
 					height: "15%"
 				}}>
 					{biggerThan1070 && <div className="logo" style={{
 						marginTop: "30px",
-						display: "flex"
+						display: "flex",
+						marginRight: "3vh"
 					}}>
 						<a href="/">
 							<img src={AppLogo} alt="" style={{
-								width: "40px",
-								height: "40px",
+								width: "175px",
 								marginLeft: "3vh",
 								marginRight: "3vh"
 							}}></img>
@@ -86,9 +87,8 @@ function App() {
 						{!biggerThan1070 && <Collapse
 							shadow
 							contentLeft={<div className="logo">
-								<img src={AppLogo} alt="" style={{
+								<img src={AppLogoMobile} alt="" style={{
 									width: "40px",
-									height: "40px",
 									marginRight: "3vh"
 								}}></img>
 							</div>}
@@ -135,10 +135,10 @@ function App() {
 									marginTop: "30px",
 									marginBottom: "20px"
 								}}>
-									<Tooltip content={'Join our discord!'} placement="bottom" color="secondary" style={{
+									<Tooltip content={'Join our discord!'} placement="bottom" color="primary" style={{
 										marginRight: "3vh"
 									}}>
-										<Button auto color="secondary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
+										<Button auto color="primary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
 									</Tooltip>
 									<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
 										marginRight: "3vh"
@@ -188,10 +188,10 @@ function App() {
 							marginTop: "30px",
 							marginLeft: "3vh"
 						}}>
-							<Tooltip content={'Join our discord!'} placement="bottom" color="secondary" style={{
+							<Tooltip content={'Join our discord!'} placement="bottom" color="primary" style={{
 								marginRight: "3vh"
 							}}>
-								<Button auto color="secondary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
+								<Button auto color="primary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
 							</Tooltip>
 							<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
 								marginRight: "3vh"
@@ -222,7 +222,10 @@ function App() {
 
 function Discord() {
 	return (
-		<img src={DiscordLogo} />
+		<img style={{
+			width: "auto",
+			height: "25px"
+		}}src={DiscordLogo} />
 	)
 }
 

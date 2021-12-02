@@ -153,8 +153,8 @@ class Switches extends Component {
     }
 
     generateLink(e) {
-        //const valueTarget = e.value;
-        console.log(e.currentTarget.value)
+        const switchtype = e.checked
+        console.log(switchtype)
     }
 
     //Render the grid with all cards, fed by 'data'
@@ -162,10 +162,6 @@ class Switches extends Component {
         const { data } = this.state
         return (
             <div>
-                {/**
-                 * @style
-                 * 'filter-control' defines the width of the fitler area
-                 */}
                 <div className="filter-control" style={{
                     display: "flex",
                     margin: 0,
@@ -190,21 +186,21 @@ class Switches extends Component {
                             </div>
                             <Spacer y="1" />
                             {/**
-                         * Container for the 'type' radio group
-                         */}
+                             * Container for switchtype radios
+                             */}
                             <div style={{
                                 marginBottom: "15px"
                             }}>
-                                <Radio.Group row value="group">
-                                    <Radio value="linear" id={BtnLinear} onClick={this.generateFilterSwitches}>
+                                <Radio.Group row id="switchtype" className="switchtype" onChange={this.generateLink}>
+                                    <Radio value="linear">
                                         Linear</Radio>
-                                    <Radio value="tactile" id={BtnTactile} onClick={this.generateFilterSwitches}>
+                                    <Radio value="tactile">
                                         Tactile</Radio>
-                                    <Radio value="clicky" id={BtnClicky} onClick={this.generateFilterSwitches}>
+                                    <Radio value="clicky">
                                         Clicky</Radio>
-                                    <Radio value="silentlinear" id={BtnSilentLinear} onClick={this.generateFilterSwitches}>
+                                    <Radio value="silentlinear">
                                         Silent Linear</Radio>
-                                    <Radio value="silentclicky" id={BtnSilentTactile} onClick={this.generateFilterSwitches}>
+                                    <Radio value="silentclicky">
                                         Silent Tactile</Radio>
                                 </Radio.Group>
                             </div>
@@ -216,13 +212,13 @@ class Switches extends Component {
                             </div>
                             <Spacer y="1" />
                             {/**
-                         * Container for the 'config' radio group
-                         */}
+                             * Container for switchconfig radios
+                             */}
                             <div>
-                                <Radio.Group row>
-                                    <Radio value="5pin" id={Btn5Pin} onClick={this.generateFilterSwitches}>
+                                <Radio.Group row onChange={this.generateLink}>
+                                    <Radio value="5pin" id={Btn5Pin}>
                                         5pin</Radio>
-                                    <Radio value="3pin" id={Btn3Pin} onClick={this.generateFilterSwitches}>
+                                    <Radio value="3pin" id={Btn3Pin}>
                                         3pin</Radio>
                                 </Radio.Group>
                             </div>
@@ -235,7 +231,7 @@ class Switches extends Component {
                 </div>
                 <Spacer y="3" />
                 <div className="grid-container">
-                    <Grid.Container gap={1} justify="center">
+                    <Grid.Container gap={1}  justify="center">
                         {data.map(book => (
                             <Cards {...book.fields} key={book.fields.id} />
                         ))}

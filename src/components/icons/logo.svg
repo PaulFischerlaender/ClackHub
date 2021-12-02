@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="454.793" height="93.865" viewBox="0 0 454.793 93.865">
+  <g id="Gruppe_77" data-name="Gruppe 77" transform="translate(18922.793 -10962)">
+    <g id="Gruppe_73" data-name="Gruppe 73" transform="translate(-65 299)">
+      <g id="Gruppe_68" data-name="Gruppe 68">
+        <path id="Pfad_32" data-name="Pfad 32" d="M0,0H22.154" transform="translate(-18812.5 10667.5)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <path id="Pfad_31" data-name="Pfad 31" d="M0,0H0V21.7" transform="translate(-18790.014 10667.641)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_15" data-name="Linie 15" x1="0.035" y2="21.449" transform="translate(-18813.021 10667.641)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <path id="Pfad_33" data-name="Pfad 33" d="M6.629,0H0" transform="translate(-18819.691 10688.757)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_18" data-name="Linie 18" x1="3.949" y2="4.782" transform="translate(-18823.5 10688.718)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_20" data-name="Linie 20" x1="55.42" transform="translate(-18834.027 10693.936)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_21" data-name="Linie 21" x1="17" y2="23" transform="translate(-18851.5 10694.5)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_23" data-name="Linie 23" x1="97" y2="0.474" transform="translate(-18851.5 10717.5)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_24" data-name="Linie 24" y1="9.009" transform="translate(-18846.039 10722.309)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_32" data-name="Linie 32" x1="2.73" y1="4.641" transform="translate(-18848.77 10717.893)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_33" data-name="Linie 33" y1="4.368" x2="2.73" transform="translate(-18756.959 10717.898)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_26" data-name="Linie 26" x2="6.825" y2="20.475" transform="translate(-18846.039 10730.698)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_28" data-name="Linie 28" x1="75.43" transform="translate(-18839.215 10751.174)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_27" data-name="Linie 27" x1="6.825" y2="20.475" transform="translate(-18763.785 10730.698)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_25" data-name="Linie 25" y1="9.282" transform="translate(-18756.959 10722.039)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_19" data-name="Linie 19" x2="4.947" y2="4.782" transform="translate(-18783.447 10688.718)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_17" data-name="Linie 17" x1="6.19" y1="0.257" transform="translate(-18789.5 10688.5)" fill="none" stroke="#3b82f5" stroke-linecap="round" stroke-width="9"/>
+      </g>
+      <g id="Gruppe_71" data-name="Gruppe 71" transform="translate(-388 3)">
+        <line id="Linie_60" data-name="Linie 60" x1="10" transform="translate(-18371.5 10686.5)" fill="none" stroke="#3bc2f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_63" data-name="Linie 63" y2="10" transform="translate(-18361.5 10686.5)" fill="none" stroke="#3bc2f5" stroke-linecap="round" stroke-width="9"/>
+        <line id="Linie_64" data-name="Linie 64" x1="15" y2="15" transform="translate(-18376.5 10686.5)" fill="none" stroke="#3bc2f5" stroke-linecap="round" stroke-width="9"/>
+      </g>
+    </g>
+    <text id="KeebLink" transform="translate(-18764 11030)" fill="#3b82f5" font-size="60" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">Keeb</tspan><tspan y="0" fill="#3bc2f5">Link</tspan></text>
+  </g>
+</svg>

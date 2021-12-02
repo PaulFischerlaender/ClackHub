@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Button, Card, Grid, Text, Tooltip, Spacer } from "@nextui-org/react";
 import config from '../components/config.json'
+import { useMediaPredicate } from "react-media-hook";
 
 const key = process.env.REACT_APP_API_KEY;
 const tagPlacement = "right";
@@ -42,8 +43,8 @@ class Vendors extends Component {
                 display: "flex",
                 marginTop: "3vh"
             }}>
-                <Grid.Container gap={1.1} justify="center">
-                    <Grid>
+                <Grid.Container gap={1} justify="center">
+                    <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
                             minWidth: "235px"
@@ -63,7 +64,7 @@ class Vendors extends Component {
                             ))}
                         </Card>
                     </Grid>
-                    <Grid>
+                    <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
                             minWidth: "235px"
@@ -82,7 +83,7 @@ class Vendors extends Component {
                             ))}
                         </Card>
                     </Grid>
-                    <Grid>
+                    <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
                             minWidth: "235px"
@@ -101,7 +102,7 @@ class Vendors extends Component {
                             ))}
                         </Card>
                     </Grid>
-                    <Grid>
+                    <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
                             minWidth: "235px"
@@ -120,7 +121,7 @@ class Vendors extends Component {
                             ))}
                         </Card>
                     </Grid>
-                    <Grid>
+                    <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
                             minWidth: "235px"
@@ -139,7 +140,7 @@ class Vendors extends Component {
                             ))}
                         </Card>
                     </Grid>
-                    <Grid>
+                    <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
                             minWidth: "235px"

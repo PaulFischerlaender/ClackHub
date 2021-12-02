@@ -1,11 +1,13 @@
 {
-    "URL_SWITCHES": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/switches",
-    "URL_KEYCAPS": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/keycaps",
-    "URL_VENDORS": "https://api.airtable.com/v0/appZDJBRdkG0hd1FU/vendors",
+    "URL_SWITCHES": "https://api.airtable.com/v0/appYlZZxXu6avK9sy/switches",
+    "URL_VENDORS": "https://api.airtable.com/v0/apptQfDNJIqFEat48/vendors",
+    "URL_KEYCAPS": "https://api.airtable.com/v0/app3JouvvGepj42qx/keycaps",
+    "URL_KITS": "https://api.airtable.com/v0/appz2YS7qD8hgUZnl/kits",
+    "URL_STATS": "https://api.airtable.com/v0/appg9cVfpjtjcnPuJ/stats",
 
     "LOCATION_STRING": "Located in ",
 
-    "VERSION": "Version: 0.1.7",
+    "VERSION": "Version: 0.1.8",
 
     "ASK_FOR_KEY": "?api_key=",
     "FILTER_BY_FORMULA": "?filterByFormula=",
@@ -18,7 +20,7 @@
     "KEYCAP_SITE_LINK": "/keycaps",
 
     "DARK_COLOR_SIDE": "#1b1b1b",
-    "DARK_COLOR_BACKGROUND": "#000",
+    "DARK_COLOR_BACKGROUND": "#111",
     "DARK_LINK_COLOR": "#fff",
     "LIGHT_LINK_COLOR": "#fff",
     "LIGHT_TEXT_COLOR": "#D6E7FB",
