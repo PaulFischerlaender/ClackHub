@@ -8,7 +8,7 @@ import Keycaps from './pages/Keycaps';
 import Kits from './pages/Kits';
 import Home from './pages/Home';
 import { useRoutes } from 'hookrouter';
-import AppLogo from './components/icons/logo.svg';
+import AppLogo from './components/icons/logot.svg';
 import AppLogoMobile from './components/icons/logomobile.svg';
 import Guide from './pages/Guide';
 import { useMediaPredicate } from "react-media-hook";

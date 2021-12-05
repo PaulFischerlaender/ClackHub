@@ -2,32 +2,15 @@ import React, { Component } from "react";
 import { Button, Spacer, Text, Radio, Collapse, Grid } from '@nextui-org/react';
 import config from '../components/config.json'
 //import Grid from '@material-ui/core/Grid'
-import Cards from '../components/Cards'
+import Cards from '../components/CardsSwitches'
 
-const BtnClicky = 'filter.Clicky';
-const BtnLinear = 'filter.linear';
-const BtnTactile = 'filter.tactile';
-const BtnSilentLinear = 'filter.silentlinear';
-const BtnSilentTactile = 'filter.silenttactile';
-const Btn3Pin = 'filter.3pin';
-const Btn5Pin = 'filter.5pin';
-const BtnJWK = 'filter.Jwk';
-const BtnCherry = 'filter.Cherry';
-const BtnGateron = 'filter.Gateron';
-const BtnEverglide = 'filter.Everglide';
-
-const filterClickyString = '%7Btype%7D%3D%22Clicky%22'
-const filterTactileString = '%7Btype%7D%3D%22Tactile%22';
-const filterLinearString = '%7Btype%7D%3D%22Linear%22';
-const filterSilentLinearString = '%7Btype%7D%3D%22SilentLinear%22';
-const filterSilentTactileString = '%7Btype%7D%3D%22SilentTactile%22';
-const filter3PinString = '%7Bconfig%7D%3D%223-pin%22';
-const filter5pinString = '%7Bconfig%7D%3D%225-pin%22';
-const filterJWKString = '%7Bmanu%7D%3D%22JWK%22';
-const filterCherryString = '%7Bmanu%7D%3D%22Cherry%22';
-const filterGateronString = '%7Bmanu%7D%3D%22Gateron%22';
-const filterEverglideString = '%7Bmanu%7D%3D%22Everglide%22';
-
+const filterClickyString = 'SEARCH("Clicky", type)'
+const filterTactileString = 'SEARCH("Tactile", type)';
+const filterLinearString = 'SEARCH("Linear", type)';
+const filterSilentLinearString = 'SEARCH("SilentLinear", type)';
+const filterSilentTactileString = 'SEARCH("SilentTactile", type)';
+const filter3PinString = 'SEARCH("3-pin", config)';
+const filter5pinString = 'SEARCH("5-pin", config)';
 const key = process.env.REACT_APP_API_KEY;
 
 class Switches extends Component {
@@ -40,13 +23,16 @@ class Switches extends Component {
 
     //Defines 'data' as an array of 'state'
     state = {
-        data: []
+        data: [],
+        typeOption: "",
+        configOption: ""
     }
 
     //Mounts the component to access it from HTML
     componentDidMount = this.componentDidMount.bind(this);
-    generateFilterSwitches = this.generateFilterSwitches.bind(this);
-    generateLink = this.generateLink.bind(this);
+    generateLinkType = this.generateLinkType.bind(this);
+    generateLinkConfig = this.generateLinkConfig.bind(this);
+    generateFilterLink = this.generateFilterLink.bind(this)
 
     //Fetch results from database and store them in 'data'
     componentDidMount() {
@@ -59,102 +45,43 @@ class Switches extends Component {
             .catch(error => console.log(error))
     }
 
-    //Generate filter links for selected checkboxes
-    //TODO: Dont hardcode filterlinks + make them stackable, like '3pin + tactile'
-    generateFilterSwitches(e) {
-        if (e.target.id === BtnClicky) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterClickyString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnLinear) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterLinearString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnTactile) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterTactileString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnSilentLinear) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterSilentLinearString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnSilentTactile) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterSilentTactileString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === Btn3Pin) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filter3PinString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === Btn5Pin) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filter5pinString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnJWK) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterJWKString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnCherry) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterCherryString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnGateron) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterGateronString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
-        if (e.target.id === BtnEverglide) {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + filterEverglideString + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-        }
+    generateLinkType(e) {
+        var value = e.target.value
+        this.setState({ typeOption: value }, this.generateFilterLink);
     }
 
-    generateLink(e) {
-        const switchtype = e.checked
-        console.log(switchtype)
+    generateLinkConfig(e) {
+        var value = e.target.value
+        this.setState({ configOption: value }, this.generateFilterLink);
+    }
+
+    generateFilterLink() {
+        console.log("TYPECHECK: " + this.state.typeOption)
+        if (this.state.typeOption !== "" && this.state.configOption === "") {
+            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + this.state.typeOption + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                .then(res => res.json())
+                .then(res => {
+                    this.setState({ data: res.records })
+                })
+                .catch(error => console.log(error))
+            console.log("TYPEOPTION")
+        } else if (this.state.typeOption === "" && this.state.configOption !== "") {
+            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + this.state.configOption + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                .then(res => res.json())
+                .then(res => {
+                    this.setState({ data: res.records })
+                })
+                .catch(error => console.log(error))
+            console.log("CONFIGOPTION")
+        } else if (this.state.typeOption !== "" && this.state.configOption !== "") {
+            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + "AND(" + this.state.typeOption + "," + this.state.configOption + ")" + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                .then(res => res.json())
+                .then(res => {
+                    this.setState({ data: res.records })
+                })
+                .catch(error => console.log(error))
+            console.log("BOTHOPTION")
+        } else if (this.state.typeOption === "" && this.state.configOption === "") { console.log("NONE") }
     }
 
     //Render the grid with all cards, fed by 'data'
@@ -163,7 +90,6 @@ class Switches extends Component {
         return (
             <div>
                 <div className="filter-control" style={{
-                    display: "flex",
                     margin: 0,
                     margin: "auto",
                     marginTop: "30px",
@@ -180,47 +106,55 @@ class Switches extends Component {
                             backgroundColor: config.DARK_COLOR_SIDE,
                         }}
                     >
-                        <div>
+                        <div className="filterLayout" style={{
+                            display: "flex"
+                        }}>
                             <div>
-                                <Text b h4>Switch Types</Text>
-                            </div>
-                            <Spacer y="1" />
-                            {/**
+                                <div>
+                                    <Text b h4>Switch Types</Text>
+                                </div>
+                                <Spacer y="1" />
+                                {/**
                              * Container for switchtype radios
                              */}
-                            <div style={{
-                                marginBottom: "15px"
-                            }}>
-                                <Radio.Group row id="switchtype" className="switchtype" onChange={this.generateLink}>
-                                    <Radio value="linear">
-                                        Linear</Radio>
-                                    <Radio value="tactile">
-                                        Tactile</Radio>
-                                    <Radio value="clicky">
-                                        Clicky</Radio>
-                                    <Radio value="silentlinear">
-                                        Silent Linear</Radio>
-                                    <Radio value="silentclicky">
-                                        Silent Tactile</Radio>
-                                </Radio.Group>
+                                <div style={{
+                                    marginBottom: "15px"
+                                }}>
+                                    <Radio.Group row value="" id="switchtype" className="switchtype">
+                                        <div onChange={this.generateLinkType}>
+                                            <Radio value={filterLinearString}>
+                                                Linear</Radio>
+                                            <Radio value={filterTactileString}>
+                                                Tactile</Radio>
+                                            <Radio value={filterClickyString}>
+                                                Clicky</Radio>
+                                            <Radio value={filterSilentLinearString}>
+                                                Silent Linear</Radio>
+                                            <Radio value={filterSilentTactileString}>
+                                                Silent Tactile</Radio>
+                                        </div>
+                                    </Radio.Group>
+                                </div>
                             </div>
-                        </div>
-                        <Spacer x="2" />
-                        <div>
+                            <Spacer x="2" />
                             <div>
-                                <Text b h4>Pin Type</Text>
-                            </div>
-                            <Spacer y="1" />
-                            {/**
+                                <div>
+                                    <Text b h4>Pin Type</Text>
+                                </div>
+                                <Spacer y="1" />
+                                {/**
                              * Container for switchconfig radios
                              */}
-                            <div>
-                                <Radio.Group row onChange={this.generateLink}>
-                                    <Radio value="5pin" id={Btn5Pin}>
-                                        5pin</Radio>
-                                    <Radio value="3pin" id={Btn3Pin}>
-                                        3pin</Radio>
-                                </Radio.Group>
+                                <div>
+                                    <Radio.Group row >
+                                        <div onChange={this.generateLinkConfig}>
+                                            <Radio value={filter5pinString}>
+                                                5pin</Radio>
+                                            <Radio value={filter3PinString}>
+                                                3pin</Radio>
+                                        </div>
+                                    </Radio.Group>
+                                </div>
                             </div>
                         </div>
                         <Spacer x="2" />
@@ -231,7 +165,7 @@ class Switches extends Component {
                 </div>
                 <Spacer y="3" />
                 <div className="grid-container">
-                    <Grid.Container gap={1}  justify="center">
+                    <Grid.Container gap={1} justify="center">
                         {data.map(book => (
                             <Cards {...book.fields} key={book.fields.id} />
                         ))}

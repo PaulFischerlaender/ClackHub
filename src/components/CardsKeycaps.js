@@ -3,9 +3,9 @@ import { Modal, Button, Spacer, Card, Row, Text, Col, Container, Grid } from "@n
 import configJSON from './config.json'
 import { useMediaPredicate } from "react-media-hook";
 
-function Switches({ title, lastupdate, creator, coverImage, type, config, manu, price, status, keygem, candykeys, splitkb,
+function Switches({ title, coverImage, layout, status, price, manu, type, lastupdate, keygem, candykeys, splitkb,
 	eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic,
-	kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc }) {
+	kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc}) {
 	const [visible, setVisible] = React.useState(false);
 	const handler = () => setVisible(true);
 	const closeHandler = () => {
@@ -28,7 +28,6 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 	var filtered = getManu.filter(function (fed) {
 		return fed != null;
 	});
-
 	/*
 	*
 	* Init html for cards
@@ -74,12 +73,12 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 							<Row justify="space-evenly">
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{price}
+										{layout}
 									</Text>
 								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{config}
+										{price}
 									</Text>
 								</Button>
 								<Button auto flat color="primary" textColor="white">
@@ -150,7 +149,7 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{config}
+										{layout}
 									</Text>
 								</Button>
 								<Button auto flat color="primary" textColor="white">
@@ -250,18 +249,64 @@ function Switches({ title, lastupdate, creator, coverImage, type, config, manu, 
 		const listItems = data.map((getdata) =>
 			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)}>
 				<Text h5 transform="capitalize">
-					 Vendors
+					 {abbreviateLinks(getdata)}
 				</Text>
 			</Button>
 		);
 
 		return (
-			<Grid.Container gap={1} justify="center"  style={{
+			<Grid.Container gap={1} justify="space-evenly"  style={{
 				padding: 20
 			}}>
 				<Grid fluid>{listItems}</Grid>
 			</Grid.Container>
 		)
+
+		function abbreviateLinks(props) {
+			if(props.includes(keygem)) {
+				return("keygem")
+			} else if(props.includes(candykeys)) {
+				return("candykeys")
+			} else if(props.includes(splitkb)) {
+				return("splitkb")
+			} else if(props.includes(eloquentclicks)) {
+				return("eloquentclicks")
+			} else if(props.includes(mykeyboard)) {
+				return("mykeyboard")
+			} else if(props.includes(novelkeys)) {
+				return("novelkeys")
+			} else if(props.includes(minokeys)) {
+				return("minokeys")
+			} else if(props.includes(zeal)) {
+				return("zeal")
+			} else if(props.includes(drop)) {
+				return("drop")
+			} else if(props.includes(tkc)) {
+				return("tkc")
+			} else if(props.includes(cannonkeys)) {
+				return("cannonkeys")
+			}else if(props.includes(fancycustoms)) {
+				return("fancycustoms")
+			} else if(props.includes(rheset)) {
+				return("rheset")
+			} else if(props.includes(latamkeys)) {
+				return("latamkeys")
+			} else if(props.includes(kprepublic)) {
+				return("kprepublic")
+			} else if(props.includes(kbdfans)) {
+				return("kbdfans")
+			} else if(props.includes(monstargear)) {
+				return("monstargear")
+			} else if(props.includes(ilumkb)) {
+				return("ilumkb")
+			}else if(props.includes(dailyclack)) {
+				return("dailyclack")
+			} else if(props.includes(switchkeys)) {
+				return("switchkeys")
+			} else if(props.includes(ctrlshiftesc)) {
+				return("ctrlshiftesc")
+			}
+		}
 	}
 
 	//Checks if status is 'Released' or 'Groupbuy' and changes tag color
