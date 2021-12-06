@@ -4,13 +4,14 @@ import config from '../components/config.json'
 //import Grid from '@material-ui/core/Grid'
 import Cards from '../components/CardsKeycaps'
 
-const filterClickyString = 'SEARCH("Clicky", type)'
-const filterTactileString = 'SEARCH("Tactile", type)';
-const filterLinearString = 'SEARCH("Linear", type)';
-const filterSilentLinearString = 'SEARCH("SilentLinear", type)';
-const filterSilentTactileString = 'SEARCH("SilentTactile", type)';
-const filter3PinString = 'SEARCH("3-pin", config)';
-const filter5pinString = 'SEARCH("5-pin", config)';
+const filterKAMString = 'SEARCH("KAM", type)'
+const filterXDAString = 'SEARCH("XDA", type)';
+const filterSAString = 'SEARCH("SA", type)';
+const filterCherryString = 'SEARCH("Cherry", type)';
+const filterOEMString = 'SEARCH("OEM", type)';
+const filterISOString = 'SEARCH("ISO", layout)';
+const filterANSIString = 'SEARCH("ANSI", layout)';
+const filterISOANSItring = 'SEARCH("ISO/ANSI", layout)';
 const key = process.env.REACT_APP_API_KEY;
 
 class Keycaps extends Component {
@@ -25,13 +26,13 @@ class Keycaps extends Component {
     state = {
         data: [],
         typeOption: "",
-        configOption: ""
+        layoutOption: ""
     }
 
     //Mounts the component to access it from HTML
     componentDidMount = this.componentDidMount.bind(this);
     generateLinkType = this.generateLinkType.bind(this);
-    generateLinkConfig = this.generateLinkConfig.bind(this);
+    generateLinkLayout = this.generateLinkLayout.bind(this);
     generateFilterLink = this.generateFilterLink.bind(this)
 
     //Fetch results from database and store them in 'data'
@@ -50,38 +51,41 @@ class Keycaps extends Component {
         this.setState({ typeOption: value }, this.generateFilterLink);
     }
 
-    generateLinkConfig(e) {
+    generateLinkLayout(e) {
         var value = e.target.value
-        this.setState({ configOption: value }, this.generateFilterLink);
+        this.setState({ layoutOption: value }, this.generateFilterLink);
     }
 
     generateFilterLink() {
-        console.log("TYPECHECK: " + this.state.typeOption)
-        if (this.state.typeOption !== "" && this.state.configOption === "") {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + this.state.typeOption + config.ASK_FOR_KEY_WHEN_FILTER + key)
+        //Only typeOption checked
+        if (this.state.typeOption !== "" && this.state.layoutOption === "") {
+            fetch(config.URL_KEYCAPS + config.FILTER_BY_FORMULA + this.state.typeOption + config.ASK_FOR_KEY_WHEN_FILTER + key)
                 .then(res => res.json())
                 .then(res => {
                     this.setState({ data: res.records })
                 })
                 .catch(error => console.log(error))
-            console.log("TYPEOPTION")
-        } else if (this.state.typeOption === "" && this.state.configOption !== "") {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + this.state.configOption + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-            console.log("CONFIGOPTION")
-        } else if (this.state.typeOption !== "" && this.state.configOption !== "") {
-            fetch(config.URL_SWITCHES + config.FILTER_BY_FORMULA + "AND(" + this.state.typeOption + "," + this.state.configOption + ")" + config.ASK_FOR_KEY_WHEN_FILTER + key)
-                .then(res => res.json())
-                .then(res => {
-                    this.setState({ data: res.records })
-                })
-                .catch(error => console.log(error))
-            console.log("BOTHOPTION")
-        } else if (this.state.typeOption === "" && this.state.configOption === "") { console.log("NONE") }
+        } else
+        //Only layoutOption checked
+            if (this.state.typeOption === "" && this.state.layoutOption !== "") {
+                fetch(config.URL_KEYCAPS + config.FILTER_BY_FORMULA + this.state.layoutOption + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                    .then(res => res.json())
+                    .then(res => {
+                        this.setState({ data: res.records })
+                    })
+                    .catch(error => console.log(error))
+            } else
+                //Both checked
+                if (this.state.typeOption !== "" && this.state.layoutOption !== "") {
+                    fetch(config.URL_KEYCAPS + config.FILTER_BY_FORMULA + "AND(" + this.state.layoutOption + ","  + this.state.typeOption + ")" + config.ASK_FOR_KEY_WHEN_FILTER + key)
+                        .then(res => res.json())
+                        .then(res => {
+                            this.setState({ data: res.records })
+                        })
+                        .catch(error => console.log(error))
+                } else
+                    //Nothing checked
+                    if (this.state.typeOption === "" && this.state.layoutOption === "") { console.log("NONE") }
     }
 
     //Render the grid with all cards, fed by 'data'
@@ -99,7 +103,7 @@ class Keycaps extends Component {
                         shadow
                         title={<Text h3 color="#fff">Filter</Text>}
                         textColor="primary"
-                        subtitle="Look for specific combinations of switches"
+                        subtitle="Look for specific combinations of keycaps"
                         justify="center"
                         style={{
                             width: "100%",
@@ -111,7 +115,7 @@ class Keycaps extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text b h4>Switch Types</Text>
+                                    <Text b h4>Layout</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -121,17 +125,13 @@ class Keycaps extends Component {
                                     marginBottom: "15px"
                                 }}>
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
-                                        <div onChange={this.generateLinkType}>
-                                            <Radio value={filterLinearString}>
-                                                Linear</Radio>
-                                            <Radio value={filterTactileString}>
-                                                Tactile</Radio>
-                                            <Radio value={filterClickyString}>
-                                                Clicky</Radio>
-                                            <Radio value={filterSilentLinearString}>
-                                                Silent Linear</Radio>
-                                            <Radio value={filterSilentTactileString}>
-                                                Silent Tactile</Radio>
+                                        <div onChange={this.generateLinkLayout}>
+                                            <Radio value={filterISOString}>
+                                                ISO</Radio>
+                                            <Radio value={filterANSIString}>
+                                                ANSI</Radio>
+                                            <Radio value={filterISOANSItring}>
+                                                ISO/ANSI</Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -139,7 +139,7 @@ class Keycaps extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                    <Text b h4>Pin Type</Text>
+                                    <Text b h4>Type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -147,11 +147,17 @@ class Keycaps extends Component {
                              */}
                                 <div>
                                     <Radio.Group row >
-                                        <div onChange={this.generateLinkConfig}>
-                                            <Radio value={filter5pinString}>
-                                                5pin</Radio>
-                                            <Radio value={filter3PinString}>
-                                                3pin</Radio>
+                                        <div onChange={this.generateLinkType}>
+                                            <Radio value={filterKAMString}>
+                                                KAM</Radio>
+                                            <Radio value={filterXDAString}>
+                                                XDA</Radio>
+                                            <Radio value={filterSAString}>
+                                                SA</Radio>
+                                            <Radio value={filterCherryString}>
+                                                Cherry</Radio>
+                                            <Radio value={filterOEMString}>
+                                                OEM</Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>

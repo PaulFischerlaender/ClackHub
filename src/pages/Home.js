@@ -14,7 +14,7 @@ const statsTextKeyboard = "Number of keyboards in our database:"
 const statsTextKeycaps = "Number of keycaps in our database:"
 const statsTextSwitches = "Number of switches in our database:"
 
-const faqFree = "Yeah. This website is completely free for you to use as much as you like."
+const faqFree = "Yes. This website is completely free for you to use as much as you like."
 const faqFinance = "Neither are there any hidden ads nor do we sell your data to thirdparties. We finance ourselves with refferal links. This means when you use a link on our website and then buy something of that vendor we get a little percentage."
 const faqTech = "This website is made with React and Airtable. For the UI we use a library called NextUI, check them out here:"
 const faqContact = "You can find our contact detials by clicking here:"

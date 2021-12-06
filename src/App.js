@@ -28,7 +28,7 @@ const routes = {
 	"/vendors": () => <Vendors />,
 	"/switches": () => <Switches />,
 	"/keycaps": () => <Keycaps />,
-	"/kits": () => <Kits />,
+	"/keyboard-kits": () => <Kits />,
 	"/guides": () => <Guide />
 };
 
@@ -110,7 +110,7 @@ function App() {
 								}}>
 									<h4>Guides</h4>
 								</UILink>
-								<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/kits" style={{
+								<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/keyboard-kits" style={{
 									marginRight: "3vw"
 								}}>
 									<h4>Keyboard Kits</h4>
@@ -162,7 +162,7 @@ function App() {
 							}}>
 								<h4>Guides</h4>
 							</UILink>
-							<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/kits" style={{
+							<UILink color={config.DARK_LINK_COLOR} id="nav.keyboard" href="/keyboard-kits" style={{
 								marginRight: "3vw"
 							}}>
 								<h4>Keyboard Kits</h4>
@@ -193,7 +193,7 @@ function App() {
 							}}>
 								<Button auto color="primary" icon={<Discord fill="white" filled />} onClick={onClickUrl("https://discord.gg/x9kGNGRsYM")} />
 							</Tooltip>
-							<Tooltip content={'Created with ❤️ by Paul Fischerländer'} placement="bottom" color="primary" style={{
+							<Tooltip content={'Created with ❤️ by P4ulF'} placement="bottom" color="primary" style={{
 								marginRight: "3vh"
 							}}>
 								<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>

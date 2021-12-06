@@ -3,9 +3,9 @@ import { Modal, Button, Spacer, Card, Row, Text, Col, Container, Grid } from "@n
 import configJSON from './config.json'
 import { useMediaPredicate } from "react-media-hook";
 
-function Switches({ title, coverImage, layout, status, price, manu, type, lastupdate, keygem, candykeys, splitkb,
+function Switches({ title, coverImage, status, price, size, layout, material, pcbtype, lastupdate, keygem, candykeys, splitkb,
 	eloquentclicks, mykeyboard, novelkeys, minokeys, zeal, drop, tkc, cannonkeys, fancycustoms, rheset, latamkeys, kprepublic,
-	kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc}) {
+	kbdfans, monstargear, ilumkb, dailyclack, switchkeys, ctrlshiftesc }) {
 	const [visible, setVisible] = React.useState(false);
 	const handler = () => setVisible(true);
 	const closeHandler = () => {
@@ -78,12 +78,12 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{price}€
+										{size}%
 									</Text>
 								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{type}
+										{pcbtype}
 									</Text>
 								</Button>
 							</Row>
@@ -91,10 +91,14 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 							<Row justify="space-between">
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{manu}
+										{material}
 									</Text>
 								</Button>
-								<Text color={configJSON.LIGHT_LINK_COLOR} size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{price}€
+									</Text>
+								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{status}
@@ -154,7 +158,7 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{type}
+										{pcbtype}
 									</Text>
 								</Button>
 							</Row>
@@ -162,10 +166,14 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 							<Row justify="space-between">
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
-										{manu}
+										{material}
 									</Text>
 								</Button>
-								<Text color={configJSON.LIGHT_LINK_COLOR} size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
+								<Button auto flat color="primary" textColor="white">
+									<Text h5 transform="capitalize">
+										{size}%
+									</Text>
+								</Button>
 								<Button auto flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{status}
@@ -249,13 +257,13 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 		const listItems = data.map((getdata) =>
 			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)}>
 				<Text h5 transform="capitalize">
-					 {abbreviateLinks(getdata)}
+					{abbreviateLinks(getdata)}
 				</Text>
 			</Button>
 		);
 
 		return (
-			<Grid.Container gap={1} justify="space-evenly"  style={{
+			<Grid.Container gap={1} justify="space-evenly" style={{
 				padding: 20
 			}}>
 				<Grid fluid>{listItems}</Grid>
@@ -263,48 +271,48 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 		)
 
 		function abbreviateLinks(props) {
-			if(props.includes(keygem)) {
-				return("keygem")
-			} else if(props.includes(candykeys)) {
-				return("candykeys")
-			} else if(props.includes(splitkb)) {
-				return("splitkb")
-			} else if(props.includes(eloquentclicks)) {
-				return("eloquentclicks")
-			} else if(props.includes(mykeyboard)) {
-				return("mykeyboard")
-			} else if(props.includes(novelkeys)) {
-				return("novelkeys")
-			} else if(props.includes(minokeys)) {
-				return("minokeys")
-			} else if(props.includes(zeal)) {
-				return("zeal")
-			} else if(props.includes(drop)) {
-				return("drop")
-			} else if(props.includes(tkc)) {
-				return("tkc")
-			} else if(props.includes(cannonkeys)) {
-				return("cannonkeys")
-			}else if(props.includes(fancycustoms)) {
-				return("fancycustoms")
-			} else if(props.includes(rheset)) {
-				return("rheset")
-			} else if(props.includes(latamkeys)) {
-				return("latamkeys")
-			} else if(props.includes(kprepublic)) {
-				return("kprepublic")
-			} else if(props.includes(kbdfans)) {
-				return("kbdfans")
-			} else if(props.includes(monstargear)) {
-				return("monstargear")
-			} else if(props.includes(ilumkb)) {
-				return("ilumkb")
-			}else if(props.includes(dailyclack)) {
-				return("dailyclack")
-			} else if(props.includes(switchkeys)) {
-				return("switchkeys")
-			} else if(props.includes(ctrlshiftesc)) {
-				return("ctrlshiftesc")
+			if (props.includes(keygem)) {
+				return ("keygem")
+			} else if (props.includes(candykeys)) {
+				return ("candykeys")
+			} else if (props.includes(splitkb)) {
+				return ("splitkb")
+			} else if (props.includes(eloquentclicks)) {
+				return ("eloquentclicks")
+			} else if (props.includes(mykeyboard)) {
+				return ("mykeyboard")
+			} else if (props.includes(novelkeys)) {
+				return ("novelkeys")
+			} else if (props.includes(minokeys)) {
+				return ("minokeys")
+			} else if (props.includes(zeal)) {
+				return ("zeal")
+			} else if (props.includes(drop)) {
+				return ("drop")
+			} else if (props.includes(tkc)) {
+				return ("tkc")
+			} else if (props.includes(cannonkeys)) {
+				return ("cannonkeys")
+			} else if (props.includes(fancycustoms)) {
+				return ("fancycustoms")
+			} else if (props.includes(rheset)) {
+				return ("rheset")
+			} else if (props.includes(latamkeys)) {
+				return ("latamkeys")
+			} else if (props.includes(kprepublic)) {
+				return ("kprepublic")
+			} else if (props.includes(kbdfans)) {
+				return ("kbdfans")
+			} else if (props.includes(monstargear)) {
+				return ("monstargear")
+			} else if (props.includes(ilumkb)) {
+				return ("ilumkb")
+			} else if (props.includes(dailyclack)) {
+				return ("dailyclack")
+			} else if (props.includes(switchkeys)) {
+				return ("switchkeys")
+			} else if (props.includes(ctrlshiftesc)) {
+				return ("ctrlshiftesc")
 			}
 		}
 	}
