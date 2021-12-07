@@ -96,7 +96,6 @@ class Keycaps extends Component {
                 <div className="filter-control" style={{
                     margin: 0,
                     margin: "auto",
-                    marginTop: "30px",
                     width: "100%"
                 }}>
                     <Collapse

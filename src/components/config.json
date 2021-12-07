@@ -7,7 +7,7 @@
 
     "LOCATION_STRING": "Located in ",
 
-    "VERSION": "Version: 0.2.0",
+    "VERSION": "Version: 0.2.1",
 
     "ASK_FOR_KEY": "?api_key=",
     "FILTER_BY_FORMULA": "?filterByFormula=",
@@ -26,10 +26,10 @@
     "LIGHT_TEXT_COLOR": "#D6E7FB",
     "LIGHT_AMBIENT_COLOR": "#DBEAFF",
 
-    "EUROPE_COLOR": "#FF004D",
-    "NA_COLOR": "#FFC045",
-    "SA_COLOR": "#9153F4",
-    "ASIA_COLOR": "#f72585",
-    "OCEANIA_COLOR": "#21E6C1",
-    "AFRICA_COLOR": "#fb5607"
+    "EUROPE_COLOR": "#ff453a",
+    "NA_COLOR": "#ffd60a",
+    "SA_COLOR": "#bf5af2",
+    "ASIA_COLOR": "#ff375f",
+    "OCEANIA_COLOR": "#66d4cf",
+    "AFRICA_COLOR": "#ff9f0a"
 }

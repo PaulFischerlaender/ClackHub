@@ -15,6 +15,8 @@ const onClickUrl = (url) => {
     return () => openInNewTab(url)
 }
 
+const minWidthCards = "260px"
+
 class Vendors extends Component {
 
     //Defines 'data' as an array of 'state'
@@ -40,14 +42,13 @@ class Vendors extends Component {
         const { data } = this.state;
         return (
             <div style={{
-                display: "flex",
-                marginTop: "3vh"
+                display: "flex"
             }}>
                 <Grid.Container gap={1} justify="center">
                     <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
-                            minWidth: "235px"
+                            minWidth: minWidthCards
                         }}>
                             <Card color={config.EUROPE_COLOR} auto style={{
                                 marginBottom: "2vh",
@@ -67,7 +68,7 @@ class Vendors extends Component {
                     <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
-                            minWidth: "235px"
+                            minWidth: minWidthCards
                         }}>
                             <Card color={config.NA_COLOR} auto style={{
                                 marginBottom: "2vh"
@@ -86,7 +87,7 @@ class Vendors extends Component {
                     <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
-                            minWidth: "235px"
+                            minWidth: minWidthCards
                         }}>
                             <Card color={config.SA_COLOR} auto style={{
                                 marginBottom: "2vh"
@@ -105,7 +106,7 @@ class Vendors extends Component {
                     <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
-                            minWidth: "235px"
+                            minWidth: minWidthCards
                         }}>
                             <Card color={config.ASIA_COLOR} auto style={{
                                 marginBottom: "2vh"
@@ -124,7 +125,7 @@ class Vendors extends Component {
                     <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
-                            minWidth: "235px"
+                            minWidth: minWidthCards
                         }}>
                             <Card color={config.OCEANIA_COLOR} auto style={{
                                 marginBottom: "2vh"
@@ -143,7 +144,7 @@ class Vendors extends Component {
                     <Grid fluid>
                         <Card style={{
                             backgroundColor: config.DARK_COLOR_SIDE,
-                            minWidth: "235px"
+                            minWidth: minWidthCards
                         }}>
                             <Card color={config.AFRICA_COLOR} auto style={{
                                 marginBottom: "2vh"
