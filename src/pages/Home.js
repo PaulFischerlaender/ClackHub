@@ -139,7 +139,7 @@ function RenderCards() {
             <Grid>
                 <Card color="primary" style={{
                     minWidth: "235px",
-                    maxWidth: "450px"
+                    maxWidth: "400px"
                 }}>
                     <Card.Header>
                         <Text h3 color="white">

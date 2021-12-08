@@ -13,6 +13,8 @@ import AppLogoMobile from './components/icons/logomobile.svg';
 import Guide from './pages/Guide';
 import { useMediaPredicate } from "react-media-hook";
 import DiscordLogo from './Discord-Logo-White.svg'
+import Imprint from './pages/Imprint';
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 /**
  * 
@@ -29,7 +31,9 @@ const routes = {
 	"/switches": () => <Switches />,
 	"/keycaps": () => <Keycaps />,
 	"/keyboard-kits": () => <Kits />,
-	"/guides": () => <Guide />
+	"/guides": () => <Guide />,
+	"/imprint": () => <Imprint />,
+	"/privacy": () => <PrivacyPolicy />
 };
 
 const openInNewTab = (url) => {
@@ -135,9 +139,13 @@ function App() {
 										}}>
 											<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
 										</Tooltip>
-										<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
+										<UILink color={config.DARK_DSGVO_COLOR} href="/imprint" className="nav-imprint" style={{
 											marginRight: "1vw"
-										}}><h5>Imprint</h5></UILink></div>}
+										}}><h5>Imprint</h5></UILink>
+										<UILink color={config.DARK_DSGVO_COLOR} href="/privacy" className="nav-imprint" style={{
+											marginRight: "1vw"
+										}}><h5>Privacy policy</h5></UILink>
+									</div>}
 								</Col>
 							</Collapse>
 							{biggerThan740 && <div className="nav-content-right" style={{
@@ -157,9 +165,12 @@ function App() {
 									<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
 								</Tooltip>
 								<br />
-								<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
+								<UILink color={config.DARK_DSGVO_COLOR} href="/imprint" className="nav-imprint" style={{
 									marginRight: "1vw"
-								}}><h4>Imprint</h4></UILink>
+								}}><h5>Imprint</h5></UILink>
+								<UILink color={config.DARK_DSGVO_COLOR} href="/privacy" className="nav-imprint" style={{
+									marginRight: "1vw"
+								}}><h5>Privacy policy</h5></UILink>
 							</div>}
 						</div>
 					</div>
@@ -271,9 +282,12 @@ function App() {
 									<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
 								</Tooltip>
 								<br />
-								<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
+								<UILink color={config.DARK_DSGVO_COLOR} href="/imprint" className="nav-imprint" style={{
 									marginRight: "1vw"
-								}}><h4>Imprint</h4></UILink>
+								}}><h5>Imprint</h5></UILink>
+								<UILink color={config.DARK_DSGVO_COLOR} href="/privacy" className="nav-imprint" style={{
+									marginRight: "1vw"
+								}}><h5>Privacy policy</h5></UILink>
 							</div>
 						</div>
 					</div>
@@ -388,9 +402,13 @@ function App() {
 									<Button auto rounded={false} flat color="primary">{config.VERSION}</Button>
 								</Tooltip>
 								<br />
-								<UILink color={config.DARK_LINK_COLOR} href="#" className="nav-imprint" style={{
+								<UILink color={config.DARK_DSGVO_COLOR} href="/imprint" className="nav-imprint" style={{
 									marginRight: "1vw"
-								}}><h4>Imprint</h4></UILink>
+								}}><h5>Imprint</h5></UILink>
+								<br />
+								<UILink color={config.DARK_DSGVO_COLOR} href="/privacy" className="nav-imprint" style={{
+									marginRight: "1vw"
+								}}><h5>Privacy policy</h5></UILink>
 							</div>
 						</div>
 					</div>
