@@ -71,35 +71,43 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 							padding: 20
 						}}>
 							<Row justify="space-evenly">
-								<Button auto flat color="primary" textColor="white">
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw"
+								}}>
 									<Text h5 transform="capitalize">
 										{layout}
 									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
+								</Card>
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw"
+								}}>
 									<Text h5 transform="capitalize">
 										{price}€
 									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
+								</Card>
+								<Card flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{type}
 									</Text>
-								</Button>
+								</Card>
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
-								<Button auto flat color="primary" textColor="white">
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw"
+								}}>
 									<Text h5 transform="capitalize">
 										{manu}
 									</Text>
-								</Button>
-								<Text color={configJSON.LIGHT_LINK_COLOR} size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
-								<Button auto flat color="primary" textColor="white">
+								</Card>
+								<Text color={configJSON.LIGHT_LINK_COLOR} size={12} style={{
+									marginRight: "1vw"
+								}}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
+								<Card flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{status}
 									</Text>
-								</Button>
+								</Card>
 							</Row>
 						</Container>
 					</Modal.Body>
@@ -142,35 +150,43 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 							padding: 20
 						}}>
 							<Row justify="space-evenly">
-								<Button auto flat color="primary" textColor="white">
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw"
+								}}>
 									<Text h5 transform="capitalize">
 										{layout}
 									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
+								</Card>
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw"
+								}}>
 									<Text h5 transform="capitalize">
 										{price}€
 									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
+								</Card>
+								<Card flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{type}
 									</Text>
-								</Button>
+								</Card>
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
-								<Button auto flat color="primary" textColor="white">
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw"
+								}}>
 									<Text h5 transform="capitalize">
 										{manu}
 									</Text>
-								</Button>
-								<Text color={configJSON.LIGHT_LINK_COLOR} size={12}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
-								<Button auto flat color="primary" textColor="white">
+								</Card>
+								<Text color={configJSON.LIGHT_LINK_COLOR} size={12} style={{
+									marginRight: "1vw"
+								}}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
+								<Card flat color="primary" textColor="white">
 									<Text h5 transform="capitalize">
 										{status}
 									</Text>
-								</Button>
+								</Card>
 							</Row>
 						</Container>
 					</Modal.Body>
@@ -247,7 +263,10 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 	function RenderLinks(props) {
 		const data = props.listdata;
 		const listItems = data.map((getdata) =>
-			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)}>
+			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)} style={{
+				marginRight: "5px",
+				marginBottom: "5px"
+			}}>
 				<Text h5 transform="capitalize">
 					 {abbreviateLinks(getdata)}
 				</Text>

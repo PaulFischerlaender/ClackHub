@@ -5,7 +5,7 @@ import config from '../components/config.json'
 import Cards from '../components/CardsKeycaps'
 
 const filterKAMString = 'SEARCH("KAM", type)'
-const filterXDAString = 'SEARCH("XDA", type)';
+const filterXDAString = 'SEARCH("DSA", type)';
 const filterSAString = 'SEARCH("SA", type)';
 const filterCherryString = 'SEARCH("Cherry", type)';
 const filterOEMString = 'SEARCH("OEM", type)';
@@ -150,7 +150,7 @@ class Keycaps extends Component {
                                             <Radio value={filterKAMString}>
                                                 KAM</Radio>
                                             <Radio value={filterXDAString}>
-                                                XDA</Radio>
+                                                DSA</Radio>
                                             <Radio value={filterSAString}>
                                                 SA</Radio>
                                             <Radio value={filterCherryString}>

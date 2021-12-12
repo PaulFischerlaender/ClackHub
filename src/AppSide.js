@@ -65,9 +65,9 @@ function App() {
 
 				<div id="nav" className="nav" style={{
 					display: "flex",
-					width: "95%",
-					margin: "0",
-					margin: "auto"
+					width: "90vw",
+					marginLeft: "1vw",
+					marginRight: "1vw"
 				}}>
 					<div>
 						<div className="nav-content" style={{
@@ -384,6 +384,11 @@ function App() {
 								}}>
 									<h4>Vendors</h4>
 								</UILink>
+								<UILink color={config.DARK_LINK_COLOR} id="nav.vendors" href="/vendors" style={{
+									marginRight: "3vw"
+								}}>
+									<Button flat color={"error"} auto><h4>Configurator</h4></Button>
+								</UILink>
 							</div>
 							<div className="nav-content-right" style={{
 								display: "block",
@@ -428,6 +433,13 @@ function App() {
 			</div>}
 		</div>
 	)
+}
+
+function CheckSite() {
+	if(window.location.pathname === "/vendors") {
+		console.log("VENDORS")
+		return (null)
+	}
 }
 
 function Discord() {
