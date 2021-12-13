@@ -110,7 +110,7 @@ class Switches extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text b h4>Switch Types</Text>
+                                    <Text h4>Switch Types</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**

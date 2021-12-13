@@ -74,40 +74,72 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 							<Row justify="space-evenly">
 								<Card flat color="primary" textColor="white" style={{
 									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
 								}}>
-									<Text h5 transform="capitalize">
-										{price}
-									</Text>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{price}
+										</Text>
+									</Card.Body>
 								</Card>
 								<Card auto flat color="primary" textColor="white" style={{
-									marginRight: "1vw"
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
 								}}>
-									<Text h5 transform="capitalize">
-										{config}
-									</Text>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{config}
+										</Text>
+									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{type}
-									</Text>
+								<Card auto flat color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{type}
+										</Text>
+									</Card.Body>
 								</Card>
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
 								<Card auto flat color="primary" textColor="white" style={{
-									marginRight: "1vw"
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
 								}}>
-									<Text h5 transform="capitalize">
-										{manu}
-									</Text>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{manu}
+										</Text>
+									</Card.Body>
 								</Card>
 								<Text color={configJSON.LIGHT_LINK_COLOR} size={12} style={{
 									marginRight: "1vw"
 								}}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
-								<Card auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{status}
-									</Text>
+								<Card auto flat color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{status}
+										</Text>
+									</Card.Body>
 								</Card>
 							</Row>
 						</Container>
@@ -153,40 +185,72 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 							<Row justify="space-evenly">
 								<Card flat color="primary" textColor="white" style={{
 									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
 								}}>
-									<Text h5 transform="capitalize">
-										{price}
-									</Text>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{price}
+										</Text>
+									</Card.Body>
 								</Card>
 								<Card auto flat color="primary" textColor="white" style={{
-									marginRight: "1vw"
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
 								}}>
-									<Text h5 transform="capitalize">
-										{config}
-									</Text>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{config}
+										</Text>
+									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{type}
-									</Text>
+								<Card auto flat color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{type}
+										</Text>
+									</Card.Body>
 								</Card>
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
 								<Card auto flat color="primary" textColor="white" style={{
-									marginRight: "1vw"
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
 								}}>
-									<Text h5 transform="capitalize">
-										{manu}
-									</Text>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{manu}
+										</Text>
+									</Card.Body>
 								</Card>
 								<Text color={configJSON.LIGHT_LINK_COLOR} size={12} style={{
 									marginRight: "1vw"
 								}}>Last updated on<Text color="primary">{lastupdate}</Text></Text>
-								<Card auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{status}
-									</Text>
+								<Card auto flat color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{status}
+										</Text>
+									</Card.Body>
 								</Card>
 							</Row>
 						</Container>
@@ -269,13 +333,13 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 				marginBottom: "5px"
 			}}>
 				<Text h5 transform="capitalize">
-					 {abbreviateLinks(getdata)}
+					{abbreviateLinks(getdata)}
 				</Text>
 			</Button>
 		);
 
 		return (
-			<Grid.Container gap={1} justify="space-evenly"  style={{
+			<Grid.Container gap={1} justify="space-evenly" style={{
 				padding: 20
 			}}>
 				<Grid fluid>{listItems}</Grid>
@@ -283,48 +347,48 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 		)
 
 		function abbreviateLinks(props) {
-			if(props.includes(keygem)) {
-				return("keygem")
-			} else if(props.includes(candykeys)) {
-				return("candykeys")
-			} else if(props.includes(splitkb)) {
-				return("splitkb")
-			} else if(props.includes(eloquentclicks)) {
-				return("eloquentclicks")
-			} else if(props.includes(mykeyboard)) {
-				return("mykeyboard")
-			} else if(props.includes(novelkeys)) {
-				return("novelkeys")
-			} else if(props.includes(minokeys)) {
-				return("minokeys")
-			} else if(props.includes(zeal)) {
-				return("zeal")
-			} else if(props.includes(drop)) {
-				return("drop")
-			} else if(props.includes(tkc)) {
-				return("tkc")
-			} else if(props.includes(cannonkeys)) {
-				return("cannonkeys")
-			}else if(props.includes(fancycustoms)) {
-				return("fancycustoms")
-			} else if(props.includes(rheset)) {
-				return("rheset")
-			} else if(props.includes(latamkeys)) {
-				return("latamkeys")
-			} else if(props.includes(kprepublic)) {
-				return("kprepublic")
-			} else if(props.includes(kbdfans)) {
-				return("kbdfans")
-			} else if(props.includes(monstargear)) {
-				return("monstargear")
-			} else if(props.includes(ilumkb)) {
-				return("ilumkb")
-			}else if(props.includes(dailyclack)) {
-				return("dailyclack")
-			} else if(props.includes(switchkeys)) {
-				return("switchkeys")
-			} else if(props.includes(ctrlshiftesc)) {
-				return("ctrlshiftesc")
+			if (props.includes(keygem)) {
+				return ("keygem")
+			} else if (props.includes(candykeys)) {
+				return ("candykeys")
+			} else if (props.includes(splitkb)) {
+				return ("splitkb")
+			} else if (props.includes(eloquentclicks)) {
+				return ("eloquentclicks")
+			} else if (props.includes(mykeyboard)) {
+				return ("mykeyboard")
+			} else if (props.includes(novelkeys)) {
+				return ("novelkeys")
+			} else if (props.includes(minokeys)) {
+				return ("minokeys")
+			} else if (props.includes(zeal)) {
+				return ("zeal")
+			} else if (props.includes(drop)) {
+				return ("drop")
+			} else if (props.includes(tkc)) {
+				return ("tkc")
+			} else if (props.includes(cannonkeys)) {
+				return ("cannonkeys")
+			} else if (props.includes(fancycustoms)) {
+				return ("fancycustoms")
+			} else if (props.includes(rheset)) {
+				return ("rheset")
+			} else if (props.includes(latamkeys)) {
+				return ("latamkeys")
+			} else if (props.includes(kprepublic)) {
+				return ("kprepublic")
+			} else if (props.includes(kbdfans)) {
+				return ("kbdfans")
+			} else if (props.includes(monstargear)) {
+				return ("monstargear")
+			} else if (props.includes(ilumkb)) {
+				return ("ilumkb")
+			} else if (props.includes(dailyclack)) {
+				return ("dailyclack")
+			} else if (props.includes(switchkeys)) {
+				return ("switchkeys")
+			} else if (props.includes(ctrlshiftesc)) {
+				return ("ctrlshiftesc")
 			}
 		}
 	}

@@ -71,39 +71,85 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 							padding: 20
 						}}>
 							<Row justify="space-evenly">
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{layout}
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{size}%
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{pcbtype}
-									</Text>
-								</Button>
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{layout}
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card to flat color="primary" textColor="white" style={{
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{size}%
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card flat color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{pcbtype}
+										</Text>
+									</Card.Body>
+								</Card>
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{material}
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{price}€
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{status}
-									</Text>
-								</Button>
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{material}
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card flat color="primary" textColor="white" style={{
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{price}€
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card flat color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{status}
+										</Text>
+									</Card.Body>
+								</Card>
 							</Row>
 						</Container>
 					</Modal.Body>
@@ -146,39 +192,82 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 							padding: 20
 						}}>
 							<Row justify="space-evenly">
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{layout}
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{price}€
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{pcbtype}
-									</Text>
-								</Button>
+								<Card color="primary" textColor="white" style={{
+									marginRight: "1vw",
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{layout}
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card color="primary" textColor="white" style={{
+									width: "auto",
+									marginRight: "1vw",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{price}€
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card color="primary" textColor="white" style={{
+									width: "auto",
+									alignItems: "center"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{pcbtype}
+										</Text>
+									</Card.Body>
+								</Card>
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{material}
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{size}%
-									</Text>
-								</Button>
-								<Button auto flat color="primary" textColor="white">
-									<Text h5 transform="capitalize">
-										{status}
-									</Text>
-								</Button>
+								<Card color="primary" textColor="white" style={{
+									width: "auto",
+									marginRight: "1vw"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{material}
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card color="primary" textColor="white" style={{
+									width: "auto",
+									marginRight: "1vw"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{size}%
+										</Text>
+									</Card.Body>
+								</Card>
+								<Card color="primary" textColor="white" style={{
+									width: "auto"
+								}}>
+									<Card.Body style={{
+										overflow: "hidden"
+									}}>
+										<Text h5 transform="capitalize">
+											{status}
+										</Text>
+									</Card.Body>
+								</Card>
 							</Row>
 						</Container>
 					</Modal.Body>

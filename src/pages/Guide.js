@@ -3,7 +3,7 @@ class Guide extends Component {
     render() {
         return (
             <div>
-                <h1>GUIDE</h1>
+                <h1>GUIDES - COMING SOON</h1>
             </div>
         )
     }

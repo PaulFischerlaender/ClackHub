@@ -3,7 +3,9 @@ import React from "react";
 function Impressum() {
 
     return (
-        <div>
+        <div style={{
+            color: '#fff'
+        }}>
             <h1>Impressum</h1>
 
             <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
