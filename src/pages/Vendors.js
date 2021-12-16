@@ -47,7 +47,7 @@ class Vendors extends Component {
                 <Grid.Container gap={1} justify="center">
                     <Grid fluid>
                         <Card style={{
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                             minWidth: minWidthCards
                         }}>
                             <Card color={config.EUROPE_COLOR} auto style={{
@@ -67,7 +67,7 @@ class Vendors extends Component {
                     </Grid>
                     <Grid fluid>
                         <Card style={{
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                             minWidth: minWidthCards
                         }}>
                             <Card color={config.NA_COLOR} auto style={{
@@ -86,7 +86,7 @@ class Vendors extends Component {
                     </Grid>
                     <Grid fluid>
                         <Card style={{
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                             minWidth: minWidthCards
                         }}>
                             <Card color={config.SA_COLOR} auto style={{
@@ -105,7 +105,7 @@ class Vendors extends Component {
                     </Grid>
                     <Grid fluid>
                         <Card style={{
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                             minWidth: minWidthCards
                         }}>
                             <Card color={config.ASIA_COLOR} auto style={{
@@ -124,7 +124,7 @@ class Vendors extends Component {
                     </Grid>
                     <Grid fluid>
                         <Card style={{
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                             minWidth: minWidthCards
                         }}>
                             <Card color={config.OCEANIA_COLOR} auto style={{
@@ -143,7 +143,7 @@ class Vendors extends Component {
                     </Grid>
                     <Grid fluid>
                         <Card style={{
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                             minWidth: minWidthCards
                         }}>
                             <Card color={config.AFRICA_COLOR} auto style={{

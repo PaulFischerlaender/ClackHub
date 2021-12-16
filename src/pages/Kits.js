@@ -105,7 +105,7 @@ class Kits extends Component {
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: config.DARK_COLOR_SIDE,
+                            backgroundColor: config.DARK_COLOR_BACKGROUND,
                         }}
                     >
                         <div className="filterLayout" style={{

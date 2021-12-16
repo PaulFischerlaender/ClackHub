@@ -47,7 +47,7 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 					closeButton
 					blur
 					style={{
-						backgroundColor: configJSON.DARK_COLOR_SIDE,
+						backgroundColor: configJSON.DARK_COLOR_BACKGROUND,
 						minWidth: "50%",
 						maxWidth: "500px",
 						minHeight: "50%"
@@ -158,7 +158,7 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 					onClose={closeHandler}
 					blur
 					style={{
-						backgroundColor: configJSON.DARK_COLOR_SIDE,
+						backgroundColor: configJSON.DARK_COLOR_BACKGROUND,
 						minWidth: "50%",
 						maxWidth: "500px",
 						minHeight: "50%"
@@ -262,7 +262,7 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
                 * Defines the layout of the grid
                 */}
 			<Grid fluid>
-				{!biggerThan534 && <Card color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler} style={{
+				{!biggerThan534 && <Card color={configJSON.DARK_COLOR_BACKGROUND} cover clickable onClick={handler} style={{
 					width: "90vw",
 					height: "34vh"
 				}}>
@@ -290,7 +290,7 @@ function Switches({ title, coverImage, layout, status, price, manu, type, lastup
 						</Row>
 					</Card.Footer>
 				</Card>}
-				{biggerThan534 && <Card width="14vw" color={configJSON.DARK_COLOR_SIDE} cover clickable onClick={handler} style={{
+				{biggerThan534 && <Card width="14vw" color={configJSON.DARK_COLOR_BACKGROUND} cover clickable onClick={handler} style={{
 					minWidth: "235px"
 				}}>
 					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
