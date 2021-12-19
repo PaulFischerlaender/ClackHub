@@ -175,6 +175,13 @@ function Navbar() {
 			<div className="action" style={{
 				display: "flex"
 			}}>
+				<Link href="/vendors" className="nav-imprint" style={{
+					marginRight: "1vw"
+				}}><Text color={colorBlueTag} style={{
+					fontSize: "20px",
+					fontWeight: "bold"
+				}}>Vendors</Text>
+				</Link>
 				<Link href="/keyboard-kits" className="nav-imprint" style={{
 					marginRight: "1vw"
 				}}><Text color={colorBlueTag} style={{
