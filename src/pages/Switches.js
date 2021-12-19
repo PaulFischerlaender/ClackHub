@@ -88,21 +88,24 @@ class Switches extends Component {
     render() {
         const { data } = this.state
         return (
-            <div>
+            <div style={{
+                marginTop: "5vh",
+                marginBottom: "5vh"
+            }}>
                 <div className="filter-control" style={{
                     margin: 0,
                     margin: "auto",
-                    width: "100%"
+                    width: "95vw"
                 }}>
                     <Collapse
                         shadow
-                        title={<Text h3 color="#fff">Filter</Text>}
+                        title={<Text h3 color="#2563EB">Filter</Text>}
                         textColor="primary"
-                        subtitle="Look for specific combinations of switches"
+                        subtitle={<Text h5 color="#6B7280">Look for specific combinations of switches</Text>}
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: config.DARK_COLOR_BACKGROUND,
+                            backgroundColor: "#EFF6FF"
                         }}
                     >
                         <div className="filterLayout" style={{
@@ -110,7 +113,7 @@ class Switches extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text h4>Switch Types</Text>
+                                    <Text h4 color="#222531">Switch Types</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -122,15 +125,15 @@ class Switches extends Component {
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkType}>
                                             <Radio value={filterLinearString}>
-                                                Linear</Radio>
+                                            <Text h4 color="#6B7280">Linear</Text></Radio>
                                             <Radio value={filterTactileString}>
-                                                Tactile</Radio>
+                                            <Text h4 color="#6B7280">Tactile</Text></Radio>
                                             <Radio value={filterClickyString}>
-                                                Clicky</Radio>
+                                            <Text h4 color="#6B7280">Clicky</Text></Radio>
                                             <Radio value={filterSilentLinearString}>
-                                                Silent Linear</Radio>
+                                            <Text h4 color="#6B7280">Silent Linear</Text></Radio>
                                             <Radio value={filterSilentTactileString}>
-                                                Silent Tactile</Radio>
+                                            <Text h4 color="#6B7280">Silent Tactile</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -138,7 +141,7 @@ class Switches extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                    <Text b h4>Pin Type</Text>
+                                    <Text b h4 color="#222531">Pin Type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -148,9 +151,9 @@ class Switches extends Component {
                                     <Radio.Group row >
                                         <div onChange={this.generateLinkConfig}>
                                             <Radio value={filter5pinString}>
-                                                5pin</Radio>
+                                            <Text h4 color="#6B7280">5-pin</Text></Radio>
                                             <Radio value={filter3PinString}>
-                                                3pin</Radio>
+                                            <Text h4 color="#6B7280">3-pin</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -163,7 +166,11 @@ class Switches extends Component {
                     </Collapse>
                 </div>
                 <Spacer y="3" />
-                <div className="grid-container">
+                <div className="grid-container" style={{
+                    width: "95vw",
+                    margin: 0,
+                    margin: "auto"
+                }}>
                     <Grid.Container gap={1} justify="center">
                         {data.map(book => (
                             <Cards {...book.fields} key={book.fields.id} />

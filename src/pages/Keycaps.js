@@ -92,21 +92,24 @@ class Keycaps extends Component {
     render() {
         const { data } = this.state
         return (
-            <div>
+            <div style={{
+                marginTop: "5vh",
+                marginBottom: "5vh"
+            }}>
                 <div className="filter-control" style={{
                     margin: 0,
                     margin: "auto",
-                    width: "100%"
+                    width: "95vw"
                 }}>
                     <Collapse
                         shadow
-                        title={<Text h3 color="#fff">Filter</Text>}
+                        title={<Text h3 color="#2563EB">Filter</Text>}
                         textColor="primary"
-                        subtitle="Look for specific combinations of keycaps"
+                        subtitle={<Text h5 color="#6B7280">Look for specific combinations of keycaps</Text>}
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: config.DARK_COLOR_BACKGROUND,
+                            backgroundColor: "#EFF6FF"
                         }}
                     >
                         <div className="filterLayout" style={{
@@ -114,7 +117,7 @@ class Keycaps extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text b h4>Layout</Text>
+                                <Text h4 color="#222531">Layout</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -126,11 +129,11 @@ class Keycaps extends Component {
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkLayout}>
                                             <Radio value={filterISOString}>
-                                                ISO</Radio>
+                                            <Text h4 color="#6B7280">ISO</Text></Radio>
                                             <Radio value={filterANSIString}>
-                                                ANSI</Radio>
+                                            <Text h4 color="#6B7280">ANSI</Text></Radio>
                                             <Radio value={filterISOANSItring}>
-                                                ISO/ANSI</Radio>
+                                            <Text h4 color="#6B7280">ISO/ANSI</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -138,7 +141,7 @@ class Keycaps extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                    <Text b h4>Type</Text>
+                                <Text h4 color="#222531">Type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -148,15 +151,15 @@ class Keycaps extends Component {
                                     <Radio.Group row >
                                         <div onChange={this.generateLinkType}>
                                             <Radio value={filterKAMString}>
-                                                KAM</Radio>
+                                            <Text h4 color="#6B7280">KAM</Text></Radio>
                                             <Radio value={filterXDAString}>
-                                                DSA</Radio>
+                                            <Text h4 color="#6B7280">DSA</Text></Radio>
                                             <Radio value={filterSAString}>
-                                                SA</Radio>
+                                            <Text h4 color="#6B7280">SA</Text></Radio>
                                             <Radio value={filterCherryString}>
-                                                Cherry</Radio>
+                                            <Text h4 color="#6B7280">Cherry</Text></Radio>
                                             <Radio value={filterOEMString}>
-                                                OEM</Radio>
+                                            <Text h4 color="#6B7280">Oem</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>

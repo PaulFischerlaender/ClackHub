@@ -91,21 +91,24 @@ class Kits extends Component {
     render() {
         const { data } = this.state
         return (
-            <div>
+            <div style={{
+                marginTop: "5vh",
+                marginBottom: "5vh"
+            }}>
                 <div className="filter-control" style={{
                     margin: 0,
                     margin: "auto",
-                    width: "100%"
+                    width: "95vw"
                 }}>
                     <Collapse
                         shadow
-                        title={<Text h3 color="#fff">Filter</Text>}
+                        title={<Text h3 color="#2563EB">Filter</Text>}
                         textColor="primary"
-                        subtitle="Look for specific combinations of keyboard kits"
+                        subtitle={<Text h5 color="#6B7280">Look for specific combinations of keyboard kits</Text>}
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: config.DARK_COLOR_BACKGROUND,
+                            backgroundColor: "#EFF6FF"
                         }}
                     >
                         <div className="filterLayout" style={{
@@ -113,7 +116,7 @@ class Kits extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text b h4>Size layout</Text>
+                                    <Text h4 color="#222531">Size layout</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -125,13 +128,13 @@ class Kits extends Component {
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkSize}>
                                             <Radio value={filter40String}>
-                                                40%</Radio>
+                                            <Text h4 color="#6B7280">40%</Text></Radio>
                                             <Radio value={filter65String}>
-                                                65%</Radio>
+                                            <Text h4 color="#6B7280">65%</Text></Radio>
                                             <Radio value={filter75tring}>
-                                                75%</Radio>
+                                            <Text h4 color="#6B7280">75%</Text></Radio>
                                             <Radio value={filter100String}>
-                                                100%</Radio>
+                                            <Text h4 color="#6B7280">100%</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -139,7 +142,7 @@ class Kits extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                    <Text b h4>PCB type</Text>
+                                    <Text h4 color="#222531">PCB type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -149,11 +152,11 @@ class Kits extends Component {
                                     <Radio.Group row >
                                         <div onChange={this.generateLinkPCB}>
                                             <Radio value={filterSolderString}>
-                                                Solder</Radio>
+                                            <Text h4 color="#6B7280">Solder</Text></Radio>
                                             <Radio value={filterHotswapString}>
-                                                Hotswap</Radio>
+                                            <Text h4 color="#6B7280">Hotswap</Text></Radio>
                                             <Radio value={filterSolderHotswapString}>
-                                                Solder/Hotswap</Radio>
+                                            <Text h4 color="#6B7280">Solder/Hotswap</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
