@@ -1,38 +1,190 @@
-import { Card, Collapse, Grid, Button, Spacer, Text, Link, Tooltip } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
 import React from "react"
 import { useMediaPredicate } from "react-media-hook";
-import Imprint from '../pages/Imprint';
+import config from '../components/config.json'
 import stockSVG from '../components/icons/stock.svg'
 import configuratorSVG from '../components/icons/configurator.svg'
 import contentright from '../components/icons/contentright.png'
-import DiscordLogo from '../Discord-Logo-White.svg'
-
-const colorBlack = "#222531";
-const colorGray = "#6B7280";
-const colorBlueTag = "#2563EB";
-const colorBlue = "#3B82F6";
 
 const headerSize = "90px";
 const tagSize = "20px";
 const textSize = "20px";
 
-const openInNewTab = (url) => {
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-    if (newWindow) newWindow.opener = null
-}
-
-const onClickUrl = (url) => {
-    return () => openInNewTab(url)
-}
-
 function Home() {
     console.log(window.location.pathname)
+    const biggerThan1300 = useMediaPredicate("(min-width: 1300px)");
     const biggerThan1000 = useMediaPredicate("(min-width: 1000px)");
+    const biggerThan740 = useMediaPredicate("(min-width: 740px)");
+    const biggerThan480 = useMediaPredicate("(min-width: 480px)");
     document.body.style.height = "auto"
     return (
-        <div style={{
-        }}>
-            {biggerThan1000 &&
+        <div>
+            {!biggerThan480 && <div className="main" style={{
+                width: "80vw",
+                margin: 0,
+                margin: "auto",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between"
+            }}>
+                <div className="splitter" style={{
+                    display: "block",
+                    marginTop: "10vh",
+                    marginBottom: "5vh"
+                }}>
+                    <div className="content-left" style={{
+                        width: "80vw"
+                    }}>
+                        <div>
+                            <div className="tag" style={{
+                                height: "auto",
+                                marginBottom: "1vh"
+                            }}>
+                                <Text color={config.LINK_COLOR} style={{
+                                    fontWeight: "bold",
+                                    fontSize: tagSize
+                                }}>Keyboard Hub.</Text>
+                            </div>
+                            <div className="header" style={{
+                                height: "auto",
+                                marginBottom: "1vh"
+                            }}>
+                                <Text color={config.TITLE_COLOR} style={{
+                                    fontWeight: "bolder",
+                                    fontSize: "65px"
+                                }}>KeebLink</Text>
+                            </div>
+                            <div className="header-footer">
+                                <Text color={config.TEXT_COLOR} style={{
+                                    fontSize: textSize
+                                }}>Free to use Custom Keyboard Hub. From Switches
+                                    to Keyboard Kits,<br /> we got everything you need.</Text>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="features" style={{
+                        marginTop: "10vh",
+                        display: "block",
+                        marginBottom: "5vh"
+                    }}>
+                        <div style={{
+                            marginBottom: "10vh"
+                        }}>
+                            <StockOverview />
+                        </div>
+                        <div>
+                            <Configurator />
+                        </div>
+                    </div>
+                </div>
+            </div>}
+            {biggerThan480 && !biggerThan740 && <div className="main" style={{
+                width: "80vw",
+                margin: 0,
+                margin: "auto",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between"
+            }}>
+                <div className="splitter" style={{
+                    display: "block",
+                    marginTop: "10vh",
+                    marginBottom: "5vh"
+                }}>
+                    <div className="content-left" style={{
+                        width: "80vw"
+                    }}>
+                        <div>
+                            <div className="tag" style={{
+                                height: "auto",
+                                marginBottom: "1vh"
+                            }}>
+                                <Text color={config.LINK_COLOR} style={{
+                                    fontWeight: "bold",
+                                    fontSize: tagSize
+                                }}>Keyboard Hub.</Text>
+                            </div>
+                            <div className="header" style={{
+                                height: "auto",
+                                marginBottom: "1vh"
+                            }}>
+                                <Text color={config.TITLE_COLOR} style={{
+                                    fontWeight: "bolder",
+                                    fontSize: "65px"
+                                }}>KeebLink</Text>
+                            </div>
+                            <div className="header-footer">
+                                <Text color={config.TEXT_COLOR} style={{
+                                    fontSize: textSize
+                                }}>Free to use Custom Keyboard Hub. From Switches
+                                    to Keyboard Kits,<br /> we got everything you need.</Text>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="features" style={{
+                        marginTop: "10vh",
+                        display: "flex",
+                        marginBottom: "5vh"
+                    }}>
+                        <StockOverview />
+                        <Configurator />
+                    </div>
+                </div>
+            </div>}
+            {biggerThan740 && !biggerThan1000 && <div className="main" style={{
+                width: "80vw",
+                margin: 0,
+                margin: "auto",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between"
+            }}>
+                <div className="splitter" style={{
+                    display: "block",
+                    marginTop: "10vh",
+                    marginBottom: "5vh"
+                }}>
+                    <div className="content-left" style={{
+                        width: "80vw"
+                    }}>
+                        <div>
+                            <div className="tag" style={{
+                                height: "auto",
+                                marginBottom: "1vh"
+                            }}>
+                                <Text color={config.LINK_COLOR} style={{
+                                    fontWeight: "bold",
+                                    fontSize: tagSize
+                                }}>Keyboard Hub.</Text>
+                            </div>
+                            <div className="header" style={{
+                                height: "auto",
+                                marginBottom: "1vh"
+                            }}>
+                                <Text color={config.TITLE_COLOR} style={{
+                                    fontWeight: "bolder",
+                                    fontSize: headerSize
+                                }}>KeebLink</Text>
+                            </div>
+                            <div className="header-footer">
+                                <Text color={config.TEXT_COLOR} style={{
+                                    fontSize: textSize
+                                }}>Free to use Custom Keyboard Hub. From Switches
+                                    to Keyboard Kits,<br /> we got everything you need.</Text>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="features" style={{
+                        marginTop: "10vh",
+                        display: "flex",
+                        marginBottom: "5vh"
+                    }}>
+                        <StockOverview />
+                        <Configurator />
+                    </div>
+                </div>
+            </div>}
+            {biggerThan1000 && !biggerThan1300 &&
                 <div>
                     <div className="main" style={{
                         width: "80vw",
@@ -45,7 +197,7 @@ function Home() {
                         <div className="splitter" style={{
                             display: "flex",
                             marginTop: "10vh",
-                            marginBottom: "50vh"
+                            marginBottom: "5vh"
                         }}>
                             <div className="content-left" style={{
                                 height: "50px",
@@ -56,7 +208,7 @@ function Home() {
                                         height: "auto",
                                         marginBottom: "1vh"
                                     }}>
-                                        <Text color={colorBlueTag} style={{
+                                        <Text color={config.LINK_COLOR} style={{
                                             fontWeight: "bold",
                                             fontSize: tagSize
                                         }}>Keyboard Hub.</Text>
@@ -65,13 +217,75 @@ function Home() {
                                         height: "auto",
                                         marginBottom: "1vh"
                                     }}>
-                                        <Text color={colorBlack} style={{
+                                        <Text color={config.TITLE_COLOR} style={{
                                             fontWeight: "bolder",
                                             fontSize: headerSize
                                         }}>KeebLink</Text>
                                     </div>
                                     <div className="header-footer">
-                                        <Text color={colorGray} style={{
+                                        <Text color={config.TEXT_COLOR} style={{
+                                            fontSize: textSize
+                                        }}>Free to use Custom Keyboard Hub. From Switches
+                                            to Keyboard Kits,<br /> we got everything you need.</Text>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="content-right" style={{
+                                width: "30vw"
+                            }}>
+                                <ContentCard />
+                            </div>
+                        </div>
+                        <div className="features" style={{
+                            marginTop: "10vh",
+                            display: "flex",
+                            marginBottom: "10vh"
+                        }}>
+                            <StockOverview />
+                            <Configurator />
+                        </div>
+                    </div>
+                </div>}
+            {biggerThan1300 &&
+                <div>
+                    <div className="main" style={{
+                        width: "80vw",
+                        margin: 0,
+                        margin: "auto",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between"
+                    }}>
+                        <div className="splitter" style={{
+                            display: "flex",
+                            marginTop: "10vh",
+                            marginBottom: "30vh"
+                        }}>
+                            <div className="content-left" style={{
+                                height: "50px",
+                                width: "40vw"
+                            }}>
+                                <div>
+                                    <div className="tag" style={{
+                                        height: "auto",
+                                        marginBottom: "1vh"
+                                    }}>
+                                        <Text color={config.LINK_COLOR} style={{
+                                            fontWeight: "bold",
+                                            fontSize: tagSize
+                                        }}>Keyboard Hub.</Text>
+                                    </div>
+                                    <div className="header" style={{
+                                        height: "auto",
+                                        marginBottom: "1vh"
+                                    }}>
+                                        <Text color={config.TITLE_COLOR} style={{
+                                            fontWeight: "bolder",
+                                            fontSize: headerSize
+                                        }}>KeebLink</Text>
+                                    </div>
+                                    <div className="header-footer">
+                                        <Text color={config.TEXT_COLOR} style={{
                                             fontSize: textSize
                                         }}>Free to use Custom Keyboard Hub. From Switches
                                             to Keyboard Kits,<br /> we got everything you need.</Text>
@@ -117,19 +331,19 @@ function StockOverview() {
                 width: "80px",
                 marginBottom: "2vh"
             }}></img>
-            <Text color={colorBlack} style={{
+            <Text color={config.TITLE_COLOR} style={{
                 fontSize: textSize,
                 fontWeight: "bold",
                 marginBottom: "1vh"
             }}>Stock Overview</Text>
-            <Text color={colorGray} style={{
+            <Text color={config.TEXT_COLOR} style={{
                 fontSize: textSize,
                 marginBottom: "3vh"
             }}>Lists of the most desired keyboard
                 parts, with links to different vendors
                 in the world.</Text>
             <a href="/switches">
-                <Text color={colorBlue} style={{
+                <Text color={config.LINK_LIGHT_COLOR} style={{
                     fontSize: textSize,
                     fontWeight: "bold"
                 }}>Learn More</Text>
@@ -147,33 +361,24 @@ function Configurator() {
                 width: "80px",
                 marginBottom: "2vh"
             }}></img>
-            <Text color={colorBlack} style={{
+            <Text color={config.TITLE_COLOR} style={{
                 fontSize: textSize,
                 fontWeight: "bold",
                 marginBottom: "1vh"
             }}>Configurator</Text>
-            <Text color={colorGray} style={{
+            <Text color={config.TEXT_COLOR} style={{
                 fontSize: textSize,
                 marginBottom: "3vh"
             }}>Configure your next dream board
                 and automatically check if there
                 are any issues with it.</Text>
             <a href="configurator">
-                <Text color={colorBlue} style={{
+                <Text color={config.LINK_LIGHT_COLOR} style={{
                     fontSize: textSize,
                     fontWeight: "bold"
                 }}>Learn More</Text>
             </a>
         </div>
-    )
-}
-
-function Discord() {
-    return (
-        <img style={{
-            width: "auto",
-            height: "25px"
-        }} src={DiscordLogo} />
     )
 }
 

@@ -99,13 +99,13 @@ class Switches extends Component {
                 }}>
                     <Collapse
                         shadow
-                        title={<Text h3 color="#2563EB">Filter</Text>}
+                        title={<Text h3 color={config.LINK_COLOR}>Filter</Text>}
                         textColor="primary"
-                        subtitle={<Text h5 color="#6B7280">Look for specific combinations of switches</Text>}
+                        subtitle={<Text h5 color={config.TEXT_COLOR}>Look for specific combinations of switches</Text>}
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: "#EFF6FF"
+                            backgroundColor: config.SUB_COLOR
                         }}
                     >
                         <div className="filterLayout" style={{
@@ -113,7 +113,7 @@ class Switches extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text h4 color="#222531">Switch Types</Text>
+                                    <Text h4 color={config.TITLE_COLOR}>Switch Types</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -125,15 +125,15 @@ class Switches extends Component {
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkType}>
                                             <Radio value={filterLinearString}>
-                                            <Text h4 color="#6B7280">Linear</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Linear</Text></Radio>
                                             <Radio value={filterTactileString}>
-                                            <Text h4 color="#6B7280">Tactile</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Tactile</Text></Radio>
                                             <Radio value={filterClickyString}>
-                                            <Text h4 color="#6B7280">Clicky</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Clicky</Text></Radio>
                                             <Radio value={filterSilentLinearString}>
-                                            <Text h4 color="#6B7280">Silent Linear</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Silent Linear</Text></Radio>
                                             <Radio value={filterSilentTactileString}>
-                                            <Text h4 color="#6B7280">Silent Tactile</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Silent Tactile</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -141,7 +141,7 @@ class Switches extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                    <Text b h4 color="#222531">Pin Type</Text>
+                                    <Text b h4 color={config.TITLE_COLOR}>Pin Type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -151,16 +151,16 @@ class Switches extends Component {
                                     <Radio.Group row >
                                         <div onChange={this.generateLinkConfig}>
                                             <Radio value={filter5pinString}>
-                                            <Text h4 color="#6B7280">5-pin</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>5-pin</Text></Radio>
                                             <Radio value={filter3PinString}>
-                                            <Text h4 color="#6B7280">3-pin</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>3-pin</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
                             </div>
                         </div>
                         <Spacer x="2" />
-                        <Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
+                        <Button auto flat rounded={false} color={config.LINK_COLOR} onClick={this.componentDidMount} id='Filter.All'>
                             Show All
                         </Button>
                     </Collapse>

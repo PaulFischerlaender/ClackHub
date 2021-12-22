@@ -47,14 +47,14 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 					closeButton
 					blur
 					style={{
-						backgroundColor: "#EFF6FF",
+						backgroundColor: configJSON.SUB_COLOR,
 						minWidth: "50%",
 						maxWidth: "500px",
 						minHeight: "50%"
 					}}
 				>
 					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 50, left: 30 }}>
-						<Button auto rounded={false} color="#2563EB">
+						<Button auto rounded={false} color={configJSON.LINK_COLOR}>
 							<Text
 								size={15}
 								weight="bold"
@@ -79,7 +79,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 							padding: 20
 						}}>
 							<Row justify="space-between">
-								<Card flat color="primary" textColor="white" style={{
+								<Card flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -92,7 +92,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -105,7 +105,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									width: "auto",
 									alignItems: "center"
 								}}>
@@ -120,7 +120,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -133,7 +133,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -142,11 +142,11 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										overflow: "hidden"
 									}}>
 										<Text h5 transform="capitalize">
-											{size}
+											{size}%
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									width: "auto",
 									alignItems: "center"
 								}}>
@@ -176,14 +176,14 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 					onClose={closeHandler}
 					blur
 					style={{
-						backgroundColor: "#EFF6FF",
+						backgroundColor: configJSON.SUB_COLOR,
 						minWidth: "50%",
 						maxWidth: "500px",
 						minHeight: "50%"
 					}}
 				>
 					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 30, left: 30 }}>
-						<Button auto rounded={false} color="#2563EB">
+						<Button auto rounded={false} color={configJSON.LINK_COLOR}>
 							<Text
 								size={15}
 								weight="bold"
@@ -208,7 +208,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 							padding: 20
 						}}>
 							<Row justify="space-between">
-								<Card flat color="primary" textColor="white" style={{
+								<Card flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -221,7 +221,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -234,7 +234,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									width: "auto",
 									alignItems: "center"
 								}}>
@@ -249,7 +249,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 							</Row>
 							<Spacer x={1} />
 							<Row justify="space-between">
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -262,7 +262,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									marginRight: "1vw",
 									width: "auto",
 									alignItems: "center"
@@ -271,11 +271,11 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 										overflow: "hidden"
 									}}>
 										<Text h5 transform="capitalize">
-											{size}
+											{size}%
 										</Text>
 									</Card.Body>
 								</Card>
-								<Card auto flat color="primary" textColor="white" style={{
+								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
 									width: "auto",
 									alignItems: "center"
 								}}>
@@ -300,7 +300,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
                 * Defines the layout of the grid
                 */}
 			<Grid fluid>
-				{!biggerThan534 && <Card color="#EFF6FF" cover clickable onClick={handler} style={{
+				{!biggerThan534 && <Card color={configJSON.SUB_COLOR} cover clickable onClick={handler} style={{
 					width: "90vw",
 					height: "34vh"
 				}}>
@@ -322,13 +322,13 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 						borderColor="rgba(255, 255, 255, 0.2)"
 						style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
 						<Row>
-							<Text h3 color="#222531">
+							<Text h3 color={configJSON.TITLE_COLOR}>
 								{title}
 							</Text>
 						</Row>
 					</Card.Footer>
 				</Card>}
-				{biggerThan534 && <Card width="14vw" color="#EFF6FF" cover clickable onClick={handler} style={{
+				{biggerThan534 && <Card width="14vw" color={configJSON.SUB_COLOR} cover clickable onClick={handler} style={{
 					minWidth: "235px"
 				}}>
 					<Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -349,7 +349,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 						borderColor="rgba(255, 255, 255, 0.2)"
 						style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
 						<Row>
-							<Text h3 color="#222531">
+							<Text h3 color={configJSON.TITLE_COLOR}>
 								{title}
 							</Text>
 						</Row>
@@ -363,7 +363,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 	function RenderLinks(props) {
 		const data = props.listdata;
 		const listItems = data.map((getdata) =>
-			<Button auto flat color="primary" textColor="white" onClick={onClickUrl(getdata)}>
+			<Button auto flat color={configJSON.LINK_COLOR} textColor="white" onClick={onClickUrl(getdata)}>
 				<Text h5 transform="capitalize">
 					{abbreviateLinks(getdata)}
 				</Text>
@@ -429,7 +429,7 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 	function CheckStatus() {
 		if (status === "Released") {
 			return (
-				<Button auto rounded={false} color="#2563EB">
+				<Button auto rounded={false} color={configJSON.LINK_COLOR}>
 					<Text
 						size={12}
 						weight="bold"

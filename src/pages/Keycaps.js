@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Spacer, Text, Radio, Collapse, Grid } from '@nextui-org/react';
 import config from '../components/config.json'
-//import Grid from '@material-ui/core/Grid'
 import Cards from '../components/CardsKeycaps'
 
 const filterKAMString = 'SEARCH("KAM", type)'
@@ -103,13 +102,13 @@ class Keycaps extends Component {
                 }}>
                     <Collapse
                         shadow
-                        title={<Text h3 color="#2563EB">Filter</Text>}
+                        title={<Text h3 color={config.LINK_COLOR}>Filter</Text>}
                         textColor="primary"
-                        subtitle={<Text h5 color="#6B7280">Look for specific combinations of keycaps</Text>}
+                        subtitle={<Text h5 color={config.TEXT_COLOR}>Look for specific combinations of keycaps</Text>}
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: "#EFF6FF"
+                            backgroundColor: config.SUB_COLOR
                         }}
                     >
                         <div className="filterLayout" style={{
@@ -117,7 +116,7 @@ class Keycaps extends Component {
                         }}>
                             <div>
                                 <div>
-                                <Text h4 color="#222531">Layout</Text>
+                                <Text h4 color={config.TITLE_COLOR}>Layout</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -129,11 +128,11 @@ class Keycaps extends Component {
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkLayout}>
                                             <Radio value={filterISOString}>
-                                            <Text h4 color="#6B7280">ISO</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>ISO</Text></Radio>
                                             <Radio value={filterANSIString}>
-                                            <Text h4 color="#6B7280">ANSI</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>ANSI</Text></Radio>
                                             <Radio value={filterISOANSItring}>
-                                            <Text h4 color="#6B7280">ISO/ANSI</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>ISO/ANSI</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -141,7 +140,7 @@ class Keycaps extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                <Text h4 color="#222531">Type</Text>
+                                <Text h4 color={config.TITLE_COLOR}>Type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -151,22 +150,22 @@ class Keycaps extends Component {
                                     <Radio.Group row >
                                         <div onChange={this.generateLinkType}>
                                             <Radio value={filterKAMString}>
-                                            <Text h4 color="#6B7280">KAM</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>KAM</Text></Radio>
                                             <Radio value={filterXDAString}>
-                                            <Text h4 color="#6B7280">DSA</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>DSA</Text></Radio>
                                             <Radio value={filterSAString}>
-                                            <Text h4 color="#6B7280">SA</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>SA</Text></Radio>
                                             <Radio value={filterCherryString}>
-                                            <Text h4 color="#6B7280">Cherry</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Cherry</Text></Radio>
                                             <Radio value={filterOEMString}>
-                                            <Text h4 color="#6B7280">Oem</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Oem</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
                             </div>
                         </div>
                         <Spacer x="2" />
-                        <Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
+                        <Button auto flat rounded={false} color={config.LINK_COLOR} onClick={this.componentDidMount} id='Filter.All'>
                             Show All
                         </Button>
                     </Collapse>

@@ -102,13 +102,13 @@ class Kits extends Component {
                 }}>
                     <Collapse
                         shadow
-                        title={<Text h3 color="#2563EB">Filter</Text>}
+                        title={<Text h3 color={config.LINK_COLOR}>Filter</Text>}
                         textColor="primary"
-                        subtitle={<Text h5 color="#6B7280">Look for specific combinations of keyboard kits</Text>}
+                        subtitle={<Text h5 color={config.TEXT_COLOR}>Look for specific combinations of keyboard kits</Text>}
                         justify="center"
                         style={{
                             width: "100%",
-                            backgroundColor: "#EFF6FF"
+                            backgroundColor: config.SUB_COLOR
                         }}
                     >
                         <div className="filterLayout" style={{
@@ -116,7 +116,7 @@ class Kits extends Component {
                         }}>
                             <div>
                                 <div>
-                                    <Text h4 color="#222531">Size layout</Text>
+                                    <Text h4 color={config.TITLE_COLOR}>Size layout</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -128,13 +128,13 @@ class Kits extends Component {
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkSize}>
                                             <Radio value={filter40String}>
-                                            <Text h4 color="#6B7280">40%</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>40%</Text></Radio>
                                             <Radio value={filter65String}>
-                                            <Text h4 color="#6B7280">65%</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>65%</Text></Radio>
                                             <Radio value={filter75tring}>
-                                            <Text h4 color="#6B7280">75%</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>75%</Text></Radio>
                                             <Radio value={filter100String}>
-                                            <Text h4 color="#6B7280">100%</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>100%</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
@@ -142,7 +142,7 @@ class Kits extends Component {
                             <Spacer x="2" />
                             <div>
                                 <div>
-                                    <Text h4 color="#222531">PCB type</Text>
+                                    <Text h4 color={config.TITLE_COLOR}>PCB type</Text>
                                 </div>
                                 <Spacer y="1" />
                                 {/**
@@ -152,18 +152,18 @@ class Kits extends Component {
                                     <Radio.Group row >
                                         <div onChange={this.generateLinkPCB}>
                                             <Radio value={filterSolderString}>
-                                            <Text h4 color="#6B7280">Solder</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Solder</Text></Radio>
                                             <Radio value={filterHotswapString}>
-                                            <Text h4 color="#6B7280">Hotswap</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Hotswap</Text></Radio>
                                             <Radio value={filterSolderHotswapString}>
-                                            <Text h4 color="#6B7280">Solder/Hotswap</Text></Radio>
+                                            <Text h4 color={config.TEXT_COLOR}>Solder/Hotswap</Text></Radio>
                                         </div>
                                     </Radio.Group>
                                 </div>
                             </div>
                         </div>
                         <Spacer x="2" />
-                        <Button auto flat rounded={false} color="primary" onClick={this.componentDidMount} id='Filter.All'>
+                        <Button auto flat rounded={false} color={config.LINK_COLOR} onClick={this.componentDidMount} id='Filter.All'>
                             Show All
                         </Button>
                     </Collapse>

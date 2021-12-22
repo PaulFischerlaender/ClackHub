@@ -2,7 +2,7 @@
   "name": "react-airtable-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://85.202.163.57",
+  "homepage": "https://keeblink.pages.dev",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@nextui-org/react": "^1.0.1-alpha.57",
