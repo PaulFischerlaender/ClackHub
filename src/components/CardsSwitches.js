@@ -55,7 +55,7 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 					}}
 				>
 					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 50, left: 30 }}>
-						<Button auto rounded={false} color={configJSON.LINK_COLOR}>
+						<Card auto rounded={false} color={configJSON.LINK_COLOR}>
 							<Text
 								size={15}
 								weight="bold"
@@ -64,7 +64,7 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 							>
 								{title}
 							</Text>
-						</Button>
+						</Card>
 					</Modal.Header>
 					<Modal.Body>
 						<div style={{
@@ -81,75 +81,39 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 						}}>
 							<Row justify="space-between">
 								<Card flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									marginRight: "1vw",
-									width: "auto",
+									width: "100%",
 									alignItems: "center"
 								}}>
 									<Card.Body style={{
 										overflow: "hidden"
 									}}>
-										<Text h5 transform="capitalize">
-											{price}
-										</Text>
-									</Card.Body>
-								</Card>
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									marginRight: "1vw",
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{config}
-										</Text>
-									</Card.Body>
-								</Card>
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{type}
-										</Text>
-									</Card.Body>
-								</Card>
-							</Row>
-							<Spacer x={1} />
-							<Row justify="space-between">
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									marginRight: "1vw",
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{manu}
-										</Text>
-									</Card.Body>
-								</Card>
-								<Text color={configJSON.TITLE_COLOR} size={12} style={{
-									marginRight: "1vw",
-									fontWeight: "bold"
-								}}>Last updated on<Text style={{
-									fontWeight: "bold"
-								}} color={configJSON.LINK_COLOR}>{lastupdate}</Text></Text>
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{status}
-										</Text>
+										<div style={{
+											display: "block",
+											width: "100%",
+											justifyContent: "space-between"
+										}}>
+											<Row justify="space-between" style={{
+												marginBottom: "2vh"
+											}}>
+												<Text h5 transform="capitalize">
+													{price}
+												</Text>
+												<Text h5 transform="capitalize">
+													{config}
+												</Text>
+												<Text h5 transform="capitalize">
+													{type}
+												</Text>
+											</Row>
+											<Row justify="space-between">
+												<Text h5 transform="capitalize">
+													{manu}
+												</Text>
+												<Text h5 transform="capitalize">
+													{status}
+												</Text>
+											</Row>
+										</div>
 									</Card.Body>
 								</Card>
 							</Row>
@@ -177,7 +141,7 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 					}}
 				>
 					<Modal.Header style={{ position: 'absolute', zIndex: 1, top: 30, left: 30 }}>
-						<Button auto rounded={false} color={configJSON.LINK_COLOR}>
+						<Card auto rounded={false} color={configJSON.LINK_COLOR}>
 							<Text
 								size={15}
 								weight="bold"
@@ -186,7 +150,7 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 							>
 								{title}
 							</Text>
-						</Button>
+						</Card>
 					</Modal.Header>
 					<Modal.Body>
 						<div style={{
@@ -203,75 +167,39 @@ function Switches({ title, lastupdate, coverImage, type, config, manu, price, st
 						}}>
 							<Row justify="space-between">
 								<Card flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									marginRight: "1vw",
-									width: "auto",
+									width: "100%",
 									alignItems: "center"
 								}}>
 									<Card.Body style={{
 										overflow: "hidden"
 									}}>
-										<Text h5 transform="capitalize">
-											{price}
-										</Text>
-									</Card.Body>
-								</Card>
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									marginRight: "1vw",
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{config}
-										</Text>
-									</Card.Body>
-								</Card>
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{type}
-										</Text>
-									</Card.Body>
-								</Card>
-							</Row>
-							<Spacer x={1} />
-							<Row justify="space-between">
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									marginRight: "1vw",
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{manu}
-										</Text>
-									</Card.Body>
-								</Card>
-								<Text color={configJSON.TITLE_COLOR} size={12} style={{
-									marginRight: "1vw",
-									fontWeight: "bold"
-								}}>Last updated on<Text style={{
-									fontWeight: "bold"
-								}} color={configJSON.LINK_COLOR}>{lastupdate}</Text></Text>
-								<Card auto flat color={configJSON.LINK_COLOR} textColor="white" style={{
-									width: "auto",
-									alignItems: "center"
-								}}>
-									<Card.Body style={{
-										overflow: "hidden"
-									}}>
-										<Text h5 transform="capitalize">
-											{status}
-										</Text>
+										<div style={{
+											display: "block",
+											width: "100%",
+											justifyContent: "space-between"
+										}}>
+											<Row justify="space-between" style={{
+												marginBottom: "2vh"
+											}}>
+												<Text h5 transform="capitalize">
+													{price}
+												</Text>
+												<Text h5 transform="capitalize">
+													{config}
+												</Text>
+												<Text h5 transform="capitalize">
+													{type}
+												</Text>
+											</Row>
+											<Row justify="space-between">
+												<Text h5 transform="capitalize">
+													{manu}
+												</Text>
+												<Text h5 transform="capitalize">
+													{status}
+												</Text>
+											</Row>
+										</div>
 									</Card.Body>
 								</Card>
 							</Row>

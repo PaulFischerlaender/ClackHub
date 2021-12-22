@@ -146,7 +146,7 @@ function FooterMobile() {
 						<Text color={config.TITLE_COLOR} style={{
 							fontSize: textSize,
 							fontWeight: "normal"
-						}}>FAQn</Text></a>
+						}}>FAQ</Text></a>
 				</div>
 			</div>
 		</div>
