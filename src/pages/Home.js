@@ -5,13 +5,13 @@ import config from '../components/config.json'
 import stockSVG from '../components/icons/stock.svg'
 import configuratorSVG from '../components/icons/configurator.svg'
 import contentright from '../components/icons/contentright.png'
+import BadgeAlert from "../components/BadgeAlert";
 
 const headerSize = "90px";
 const tagSize = "20px";
 const textSize = "20px";
 
 function Home() {
-    console.log(window.location.pathname)
     const biggerThan1300 = useMediaPredicate("(min-width: 1300px)");
     const biggerThan1000 = useMediaPredicate("(min-width: 1000px)");
     const biggerThan740 = useMediaPredicate("(min-width: 740px)");
@@ -19,6 +19,13 @@ function Home() {
     document.body.style.height = "auto"
     return (
         <div>
+            {/**
+             * 
+             * @author Paul Fischerländer
+             * Created in December 2021.
+             * All Rights reserved.
+             * 
+             */}
             {!biggerThan480 && <div className="main" style={{
                 width: "80vw",
                 margin: 0,
@@ -27,6 +34,7 @@ function Home() {
                 flexDirection: "column",
                 justifyContent: "space-between"
             }}>
+                {BadgeAlert("Alert!", "This webapp is still very #WorkInProgress!", "Many features are still buggy or not yet implemented.")}
                 <div className="splitter" style={{
                     display: "block",
                     marginTop: "10vh",
@@ -86,6 +94,7 @@ function Home() {
                 flexDirection: "column",
                 justifyContent: "space-between"
             }}>
+                {BadgeAlert("Alert!", "This webapp is still very #WorkInProgress!", "Many features are still buggy or not yet implemented.")}
                 <div className="splitter" style={{
                     display: "block",
                     marginTop: "10vh",
@@ -139,6 +148,7 @@ function Home() {
                 flexDirection: "column",
                 justifyContent: "space-between"
             }}>
+                {BadgeAlert("Alert!", "This webapp is still very #WorkInProgress!", "Many features are still buggy or not yet implemented.")}
                 <div className="splitter" style={{
                     display: "block",
                     marginTop: "10vh",
@@ -194,6 +204,7 @@ function Home() {
                         flexDirection: "column",
                         justifyContent: "space-between"
                     }}>
+                        {BadgeAlert("Alert!", "This webapp is still very #WorkInProgress!", "Many features are still buggy or not yet implemented.")}
                         <div className="splitter" style={{
                             display: "flex",
                             marginTop: "10vh",
@@ -256,6 +267,7 @@ function Home() {
                         flexDirection: "column",
                         justifyContent: "space-between"
                     }}>
+                        {BadgeAlert("Alert!", "This webapp is still very #WorkInProgress!", "Many features are still buggy or not yet implemented.")}
                         <div className="splitter" style={{
                             display: "flex",
                             marginTop: "10vh",
