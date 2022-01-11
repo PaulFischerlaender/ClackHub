@@ -171,7 +171,9 @@ class Keycaps extends Component {
                     </Collapse>
                 </div>
                 <Spacer y="3" />
-                <div className="grid-container">
+                <div className="grid-container" style={{
+                    minHeight: "100vh"
+                }}>
                     <Grid.Container gap={1} justify="center">
                         {data.map(book => (
                             <Cards {...book.fields} key={book.fields.id} />

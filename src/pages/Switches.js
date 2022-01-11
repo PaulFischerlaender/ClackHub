@@ -33,9 +33,20 @@ class Switches extends Component {
     generateLinkType = this.generateLinkType.bind(this);
     generateLinkConfig = this.generateLinkConfig.bind(this);
     generateFilterLink = this.generateFilterLink.bind(this)
+    reset = this.reset.bind(this)
 
     //Fetch results from database and store them in 'data'
     componentDidMount() {
+        fetch(config.URL_SWITCHES + config.ASK_FOR_KEY + key)
+            .then(res => res.json())
+            .then(res => {
+                //Sets fetched 'res' to 'data'
+                this.setState({ data: res.records })
+            })
+            .catch(error => console.log(error))
+    }
+
+    reset() {
         fetch(config.URL_SWITCHES + config.ASK_FOR_KEY + key)
             .then(res => res.json())
             .then(res => {
@@ -124,7 +135,7 @@ class Switches extends Component {
                                 }}>
                                     <Radio.Group row value="" id="switchtype" className="switchtype">
                                         <div onChange={this.generateLinkType}>
-                                            <Radio value={filterLinearString}>
+                                            <Radio checked={true} value={filterLinearString}>
                                             <Text h4 color={config.TEXT_COLOR}>Linear</Text></Radio>
                                             <Radio value={filterTactileString}>
                                             <Text h4 color={config.TEXT_COLOR}>Tactile</Text></Radio>
@@ -160,7 +171,7 @@ class Switches extends Component {
                             </div>
                         </div>
                         <Spacer x="2" />
-                        <Button auto flat rounded={false} color={config.LINK_COLOR} onClick={this.componentDidMount} id='Filter.All'>
+                        <Button auto flat rounded={false} color={config.LINK_COLOR} onClick={this.reset} id='Filter.All'>
                             Show All
                         </Button>
                     </Collapse>
@@ -169,7 +180,8 @@ class Switches extends Component {
                 <div className="grid-container" style={{
                     width: "95vw",
                     margin: 0,
-                    margin: "auto"
+                    margin: "auto",
+                    minHeight: "100vh"
                 }}>
                     <Grid.Container gap={1} justify="center">
                         {data.map(book => (

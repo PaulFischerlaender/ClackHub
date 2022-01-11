@@ -44,7 +44,8 @@ class Vendors extends Component {
             <div style={{
                 display: "flex",
                 marginTop: "5vh",
-                marginBottom: "12vh"
+                marginBottom: "12vh",
+                minHeight: "80vh"
             }}>
                 <Grid.Container gap={1} justify="center">
                     <Grid fluid>

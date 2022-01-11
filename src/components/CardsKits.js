@@ -283,7 +283,10 @@ function Switches({ title, coverImage, status, price, size, layout, material, pc
 	function RenderLinks(props) {
 		const data = props.listdata;
 		const listItems = data.map((getdata) =>
-			<Button auto flat color={configJSON.LINK_COLOR} textColor="white" onClick={onClickUrl(getdata)}>
+			<Button auto flat color={configJSON.LINK_COLOR} textColor="white" onClick={onClickUrl(getdata)} style={{
+				marginRight: "5px",
+				marginBottom: "5px"
+			}}>
 				<Text h5 transform="capitalize">
 					{abbreviateLinks(getdata)}
 				</Text>
