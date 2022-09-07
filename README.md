@@ -6,6 +6,10 @@ Built with React and Airtable to make easy adjustments to the core catalog.
 
 Easy upkeep of all of the data by using a tight integration of the **Airtable API**
 
+
+**This is an abandoned project**
+
+
 ## 
 
 Core features of [KeebLink](https://keeb.link):
