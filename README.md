@@ -1,4 +1,4 @@
-# KeebLink - The marketplace app for the custom keyboard scene
+# KeebLink - The market-overview app for the custom keyboard scene
 
 Created by **Paul Fischerländer aka Keebify** in November 2021.
 
