@@ -1,4 +1,4 @@
-# ClackHub - The marketplace app for the custom keyboard scene
+# KeebLink - The marketplace app for the custom keyboard scene
 
 Created by **Paul Fischerländer aka Keebify** in November 2021.
 
@@ -8,19 +8,19 @@ Easy upkeep of all of the data by using a tight integration of the **Airtable AP
 
 ## 
 
-Core features of [ClackHub](https://clackhub.com/index):
+Core features of [KeebLink](https://keeb.link):
 
 ### `Easy stock overview`
 
-ClackHub is built so that it is easy to keep track of all of the available switches, keycaps and keyboard kits out there.\
+KeebLink is built so that it is easy to keep track of all of the available switches, keycaps and keyboard kits out there.\
 When I first started with this hobby it was pretty confusing with the amount of different kind of types of keyboard parts.
 
-With ClackHub you can see the whole majority of essential keyboard parts available by vendors.\
+With KeebLink you can see the whole majority of essential keyboard parts available by vendors.\
 You can easily sort them by for example Linear or Tactile variants of a switch, or sort by layout if you are looking for ISO keycaps.
 
 ### `Guides for newcomers`
 
-ClackHub provides you with a lot of own guides and links to different sites, so you can get started enjoying this hobby quicker.
+KeebLink provides you with a lot of own guides and links to different sites, so you can get started enjoying this hobby quicker.
 
 **You wanna learn how to properly lube your switches?**\
 We got you.
@@ -37,6 +37,6 @@ The `Compatibility Checker` will look out for these kind of problematic situatio
 
 ### `Vendors list for all regions`
 
-Finding Vendors in your area can be sometimes difficult, especially for newbies. ClackHub therefore lists a majority\
+Finding Vendors in your area can be sometimes difficult, especially for newbies. KeebLink therefore lists a majority\
 of vendors for different regions so you can choose the right vendor without having to deal with possible customs problems\
 or long delivery times.
