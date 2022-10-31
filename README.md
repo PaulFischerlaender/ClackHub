@@ -44,3 +44,13 @@ The `Compatibility Checker` will look out for these kind of problematic situatio
 Finding Vendors in your area can be sometimes difficult, especially for newbies. KeebLink therefore lists a majority\
 of vendors for different regions so you can choose the right vendor without having to deal with possible customs problems\
 or long delivery times.
+
+
+### `Known issues and bugs`
+
+ - When pressing "show all" in selection, the selected items don't reset
+ - Submit Button doesn't work
+ - Outdated database
+ - Some items can overflow
+ 
+ Last edited on 31.10.2022
